@@ -43,9 +43,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="relative scroll-smooth antialiased">
       <body
-        className={`antialiased`}
+        className={`scrollbar-thin scrollbar-thumb-omega-500 hover:scrollbar-thumb-omega-600`}
       >
         <ThemeProvider
           attribute="class"
