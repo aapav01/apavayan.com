@@ -102,6 +102,18 @@ body {
       color: var(--tw-prose-counters);
     }
   }
+  .skill-section div {
+    @apply flex flex-row flex-wrap w-full py-2;
+  }
+  .skill-section div h4 {
+    @apply text-lg font-bold md:min-w-24;
+  }
+  .skill-section div ul {
+    @apply flex flex-row flex-wrap gap-2;
+  }
+  .skill-section div ul li {
+    @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground;
+  }
 }
 
 @layer utilities {
