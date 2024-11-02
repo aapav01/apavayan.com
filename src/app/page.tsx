@@ -20,29 +20,61 @@ export default function HomePage() {
       <Card className="p-4 rounded-none">
         <CardHeader className="items-center">
           <div className="bg-blue-400"></div>
-          <h1 className="text-gradient-500 pb-4">
-            <Typewriter delaySpeed={3500} words={["Apavayan Sinha"]} />
+          <h1 className="text-gradient-500 pb-4 font-mono">
+            <Typewriter words={["Apavayan Sinha"]} />
           </h1>
-          <p className="inline-flex flex-row text-3xl gap-2">
+          <p className="inline-flex flex-row text-3xl gap-2 font-mono">
             <IoChevronForwardSharp className="hidden shrink-0 grow-0 self-center opacity-50 md:block" />
             I am a
             <strong className="bg-gradient-to-tr from-red-400 to-indigo-600 text-transparent bg-clip-text font-mono">
               <Typewriter
                 cursor={true}
-                cursorStyle={"_"}
-                loop={10}
+                loop={true}
                 words={["Full Stack Developer", "Software Enginneer"]}
+                delaySpeed={3500}
               />
             </strong>
           </p>
         </CardHeader>
         <CardContent className="flex flex-col items-center gap-5">
+          <div className="prose text-center max-w-screen-lg">
+            <p>
+              I am currently a Software Engineer, where I collaborate with a
+              talented team to build impactful solutions for business platforms.
+            </p>
+            <p>
+              As a full-stack developer, I love connecting the dots between
+              complex backend logic and user-friendly frontend design, combining
+              technical expertise with a user-centred approach. My focus is
+              always on creating scalable, robust applications that not only
+              perform well but also deliver a seamless and engaging user
+              experience.
+            </p>
+            <p>
+              When I&lsquo;m not coding, I&lsquo;m exploring tech trends,
+              capturing stunning photos, or pursuing my personal goals—
+            </p>
+          </div>
+          <div className="prose text-left ml-auto">
+          <blockquote className="ml-auto">
+            &ldquo;Embark on an adventure, one line of code at a time.&rdquo;
+          </blockquote>
+          </div>
+          <span className="text-muted-foreground text-2xl font-black font-sans">
+            Based In India
+          </span>
           <div>
-            <Button3D target="_blank" download={true} variant={"black"} size={"sm"} as="a" href="/resume/CV___Apavayan_Sinha.pdf">
-              Download Résumé
+            <Button3D
+              target="_blank"
+              download={true}
+              variant={"black"}
+              size={"sm"}
+              as="a"
+              href="/resume/CV___Apavayan_Sinha.pdf"
+            >
+              <span className="text-lg font-bold">Download Résumé</span>
             </Button3D>
           </div>
-          <h5 className="">Based In India</h5>
         </CardContent>
         <Separator className="my-8 lg:my-12" />
         <section className="w-full">
