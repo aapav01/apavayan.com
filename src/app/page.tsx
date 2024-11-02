@@ -1,6 +1,7 @@
 import Reveal from "@/components/reveal";
 import Typewriter from "@/components/typewriter";
-import { Card, CardHeader } from "@/components/ui/card";
+import Button3D from "@/components/ui/button-3d";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import classNames from "clsx";
 import React from "react";
@@ -19,13 +20,13 @@ export default function HomePage() {
       <Card className="p-4 rounded-none">
         <CardHeader className="items-center">
           <div className="bg-blue-400"></div>
-          <h1 className="inline-flex flex-row bg-gradient-to-tl from-indigo-400 to-blue-600 text-transparent bg-clip-text font-mono">
+          <h1 className="text-gradient-500 pb-4">
             <Typewriter delaySpeed={3500} words={["Apavayan Sinha"]} />
           </h1>
           <p className="inline-flex flex-row text-3xl gap-2">
             <IoChevronForwardSharp className="hidden shrink-0 grow-0 self-center opacity-50 md:block" />
             I am a
-            <strong>
+            <strong className="bg-gradient-to-tr from-red-400 to-indigo-600 text-transparent bg-clip-text font-mono">
               <Typewriter
                 cursor={true}
                 cursorStyle={"_"}
@@ -34,15 +35,22 @@ export default function HomePage() {
               />
             </strong>
           </p>
-          <h5 className="">Based In India</h5>
         </CardHeader>
+        <CardContent className="flex flex-col items-center gap-5">
+          <div>
+            <Button3D target="_blank" download={true} variant={"black"} size={"sm"} as="a" href="/resume/CV___Apavayan_Sinha.pdf">
+              Download Résumé
+            </Button3D>
+          </div>
+          <h5 className="">Based In India</h5>
+        </CardContent>
         <Separator className="my-8 lg:my-12" />
         <section className="w-full">
           <div
             className={classNames(
               "p-10 text-center md:p-6",
               "ld:grid-cols-4 grid grid-cols-2 lg:grid-cols-4",
-              "divide-omega-700/30 lg:divide-x"
+              "divide-zinc-700/30 lg:divide-x"
             )}
           >
             {achievements?.map((item, i) => (
@@ -53,9 +61,7 @@ export default function HomePage() {
                 className="flex-1 p-2"
               >
                 <h3 className="m-0 text-blue-500">{item.number}</h3>
-                <p className="mt-2 mb-0 font-bold">
-                  {item.text}
-                </p>
+                <p className="mt-2 mb-0 font-bold">{item.text}</p>
               </Reveal>
             ))}
           </div>

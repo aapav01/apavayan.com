@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="relative scroll-smooth antialiased">
       <body
-        className={`scrollbar-thin scrollbar-thumb-omega-500 hover:scrollbar-thumb-omega-600`}
+        className={`scrollbar-thin scrollbar-thumb-zinc-500 hover:scrollbar-thumb-zinc-600`}
       >
         <ThemeProvider
           attribute="class"

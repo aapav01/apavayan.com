@@ -9,7 +9,7 @@ const MDXYoutube = ({ id, ...props }: LiteYouTubeProps) => {
   });
 
   return (
-    <div className="bg-omega-800" ref={inViewRef}>
+    <div className="bg-zinc-800" ref={inViewRef}>
       {inView && (
         <LiteYouTubeEmbed
           id={id}
@@ -28,7 +28,7 @@ const MDXYoutube = ({ id, ...props }: LiteYouTubeProps) => {
             "bg-black relative block bg-center bg-cover cursor-pointer group",
             'after:content-["_"] after:block after:pb-[var(--aspect-ratio)]',
             'before:content-["_"] before:absolute before:top-0 before:left-0 before:h-full before:w-full before:z-10',
-            "before:bg-omega-900 before:opacity-0 hover:before:opacity-50",
+            "before:bg-zinc-900 before:opacity-0 hover:before:opacity-50",
             "before:transition-opacity"
           )}
           {...props}
