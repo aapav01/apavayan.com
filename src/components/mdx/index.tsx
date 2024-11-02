@@ -5,7 +5,6 @@ import MDXImage from "@/components/mdx/image";
 import MDXLink from "@/components/mdx/link";
 import MDXPageTitle from "@/components/mdx/page-title";
 import MDXWide from "@/components/mdx/wide";
-import Typewriter from "@/components/typewriter";
 import { Separator } from "@/components/ui/separator";
 import dynamic from "next/dynamic";
 import React from "react";
@@ -20,7 +19,6 @@ const MDX = {
   Youtube: MDXYoutube,
   PageTitle: MDXPageTitle,
   Icon,
-  Typewriter,
   Separator,
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <MDXHeading as="h1" {...props} />
