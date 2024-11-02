@@ -1,26 +1,22 @@
-import Reveal from "@/components/reveal";
 import Typewriter from "@/components/typewriter";
 import Button3D from "@/components/ui/button-3d";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import classNames from "clsx";
+// import { Separator } from "@/components/ui/separator";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
 import React from "react";
 import { IoChevronForwardSharp } from "react-icons/io5";
 
 export default function HomePage() {
-  const achievements = [
-    { number: "3+", text: "Years of Experience" },
-    { number: "15", text: "Projects" },
-    { number: "10+", text: "Happy StackHolders" },
-    { number: "7,000+", text: "Hours of Coding" },
-  ];
-
   return (
     <React.Fragment>
       <Card className="p-4 rounded-none">
         <CardHeader className="items-center">
-          <div className="bg-blue-400"></div>
-          <h1 className="text-gradient-500 pb-4 font-mono">
+        <Avatar className="h-96 w-auto -mb-10 z-0">
+          <AvatarImage src="/apavayan.png" />
+          <AvatarFallback className="text-3xl">A S</AvatarFallback>
+        </Avatar>
+          <h1 className="text-gradient-500 pb-4 font-mono z-10 text-7xl">
             <Typewriter words={["Apavayan Sinha"]} />
           </h1>
           <p className="inline-flex flex-row text-3xl gap-2 font-mono">
@@ -76,33 +72,7 @@ export default function HomePage() {
             </Button3D>
           </div>
         </CardContent>
-        <Separator className="my-8 lg:my-12" />
-        <section className="w-full">
-          <div
-            className={classNames(
-              "p-10 text-center md:p-6",
-              "ld:grid-cols-4 grid grid-cols-2 lg:grid-cols-4",
-              "divide-zinc-700/30 lg:divide-x"
-            )}
-          >
-            {achievements?.map((item, i) => (
-              <Reveal
-                key={i}
-                animation="fade-in"
-                delay={i * 150}
-                className="flex-1 p-2"
-              >
-                <h3 className="m-0 text-blue-500">{item.number}</h3>
-                <p className="mt-2 mb-0 font-bold">{item.text}</p>
-              </Reveal>
-            ))}
-          </div>
-        </section>
       </Card>
-      <Separator className="my-8 lg:my-12" />
-      <section className="py-4">
-        <small className="text-center">Website Under Construction...</small>
-      </section>
     </React.Fragment>
   );
 }
