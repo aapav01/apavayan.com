@@ -2,6 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { Inter, Roboto_Mono } from 'next/font/google'
+ 
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+ 
+const roboto_mono = Roboto_Mono({
+  subsets: ['latin'],
+  variable: '--font-roboto-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://apavayan.com'),
@@ -43,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="relative scroll-smooth antialiased">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${roboto_mono.variable} relative scroll-smooth antialiased`}>
       <body
         className={`scrollbar-thin scrollbar-thumb-zinc-500 hover:scrollbar-thumb-zinc-600`}
       >
