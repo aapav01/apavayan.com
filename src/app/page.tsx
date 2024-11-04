@@ -184,7 +184,65 @@ export default function HomePage() {
                     />
                   </div>
                 </CardHeader>
-                <CardContent></CardContent>
+                <CardContent>
+                  <span className="text-sm text-muted-foreground text-right w-full block">
+                    Sep 2023 - Date
+                  </span>
+                  <ul className="list-item list-disc">
+                    <li>
+                      Collaborated with the Project Manager to document user
+                      requirements for the Internal Management Platform,
+                      improving project delivery timelines by 25%.
+                    </li>
+                    <li>
+                      Increased application performance by 36% through modern
+                      system design and architecture. Designed reliable and
+                      scalable software architectures for middle and back-office
+                      applications, Improving system performance.
+                    </li>
+                    <li>
+                      Automated reporting features that enhanced regulatory
+                      compliance audits; and reduced audit preparation time by
+                      15 hours per month while addressing three critical areas
+                      of non-compliance identified during reviews.
+                    </li>
+                    <li>
+                      Deployed Redis as a caching solution, achieving a 20%
+                      reduction in database load while improving application
+                      response time from an average of 200ms to under 100ms for
+                      end-user transactions.
+                    </li>
+                    <li>
+                      Automated more than 50% of H.R. Process by implementing
+                      and customization of HRMS as per AWOKE India culture.
+                    </li>
+                    <li>
+                      Created an innovative system for automating the
+                      implementation of trainers; integrated real-time alerts
+                      and updates which reduced manual errors by over 60%,
+                      enhancing overall operational reliability in physical
+                      training sessions.
+                    </li>
+                    <li>
+                      Innovated tracking tool that streamlined oversight of over
+                      ₹20 million in funds allocated towards CAPEX and OPEX
+                      initiatives; improved financial transparency with
+                      real-time data access throughout all project stages.
+                    </li>
+                    <li>
+                      Prepared a Warrper Module leveraging Generative AI
+                      technology, specifically utilizing ChatGPT, to optimize
+                      the proposal email composition process for leads,
+                      resulting in a 30-minute reduction in preparation time per
+                      email.
+                    </li>
+                    <li>
+                      Integrated third-party REST APIs, including LeadSquare and
+                      Dhawni, to enhance system functionality and streamline
+                      processes.
+                    </li>
+                  </ul>
+                </CardContent>
                 <CardFooter className="gap-4">
                   <span className="font-semibold">Technologies</span>
                   <ul className=" flex flex-wrap gap-2">
@@ -234,7 +292,38 @@ export default function HomePage() {
                     <Image src={GWLLOGO} alt="Global Webs Link" />
                   </div>
                 </CardHeader>
-                <CardContent></CardContent>
+                <CardContent>
+                  <span className="text-sm text-muted-foreground text-right w-full block">
+                    Sep 2019 - Jul 2021
+                  </span>
+                  <ul className="list-item list-disc">
+                    <li>
+                      Developed cross-platform mobile apps for news aggregation
+                      on Android and iOS using Java and Objective-C, integrating
+                      the WordPress API for article retrieval and Firebase Cloud
+                      Messaging for notifications.
+                    </li>
+                    <li>
+                      Created a web application tailored for managing Virtual
+                      Marathon events, supporting over 1,500+ participants
+                      during the COVID-19 pandemic and enhancing overall
+                      engagement through real-time tracking of performance
+                      metrics from Strava and Fitbit
+                    </li>
+                    <li>
+                      Developed an Internal Job Reference System for the Alumni
+                      Portal that allowed over 500 students and alumni to easily
+                      connect, post, and apply for job opportunities within a
+                      streamlined interface.
+                    </li>
+                    <li>
+                      Integrated an innovative Gallery feature utilizing REST
+                      APIs within a React.js application; enhanced community
+                      engagement by allowing users to upload and share 500+
+                      photos monthly, fostering increased interaction.
+                    </li>
+                  </ul>
+                </CardContent>
                 <CardFooter className="gap-4">
                   <span className="font-semibold">Technologies</span>
                   <ul className="flex flex-wrap gap-2">
