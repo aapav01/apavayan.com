@@ -1,11 +1,20 @@
 import Typewriter from "@/components/typewriter";
 import Button3D from "@/components/ui/button-3d";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import React from "react";
 import { IoChevronForwardSharp } from "react-icons/io5";
+import GWLLOGO from "@/company/logos/gwl.png";
+import AWOKEINDIALOGO from "@/company/logos/awokeindia.png";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 export default function HomePage() {
   return (
@@ -40,8 +49,11 @@ export default function HomePage() {
             </strong>
           </p>
         </CardHeader>
-        <CardContent className="flex flex-col items-center gap-5">
-          <div className="prose text-center max-w-screen-lg">
+        <CardContent className="flex flex-col gap-5 container p-10">
+          <h3 className="font-mono">
+            <span className="text-muted-foreground">01. </span>About Me
+          </h3>
+          <div className="prose text-center max-w-screen-lg mx-auto">
             <p>
               I am currently a Software Engineer, where I collaborate with a
               talented team to build impactful solutions for business platforms.
@@ -64,73 +76,198 @@ export default function HomePage() {
               &ldquo;Embark on an adventure, one line of code at a time.&rdquo;
             </blockquote>
           </div>
-          <span className="text-muted-foreground text-2xl font-black font-sans">
-            Based In India 🇮🇳
-          </span>
-          <div>
-            <Button3D
-              target="_blank"
-              download={true}
-              variant={"black"}
-              size={"sm"}
-              as="a"
-              href="/resume/CV___Apavayan_Sinha.pdf"
-            >
-              <span className="text-lg font-bold">Download Résumé</span>
-            </Button3D>
-          </div>
-        </CardContent>
-        <Separator orientation="horizontal" className="w-full" />
-        <section className="container py-10 mx-auto max-w-screen-lg">
-          <h3 className="font-mono">Skills</h3>
-          <div className="font-mono flex flex-col py-4 skill-section">
+          <div className="w-full flex flex-col gap-8 items-center">
+            <span className="text-muted-foreground text-2xl font-black font-sans">
+              Based In India 🇮🇳
+            </span>
             <div>
-              <h4 className="font-mono">Frontend</h4>
-              <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Next.js</li>
-                <li>Redux</li>
-                <li>GraphQL</li>
-                <li>RESTful APIs</li>
-              </ul>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <h4 className="font-mono">Backend</h4>
-              <ul>
-                <li>Node.js</li>
-                <li>Express.js</li>
-                <li>Python</li>
-                <li>Django</li>
-                <li>Flask</li>
-                <li>RESTful APIs</li>
-                <li>GraphQL</li>
-                <li>MySQL/MariaDB</li>
-              </ul>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <h4 className="font-mono">DevOps</h4>
-              <ul>
-                <li>Git</li>
-                <li>GitHub</li>
-                <li>Docker</li>
-                <li>Heroku</li>
-                <li>Netlify</li>
-              </ul>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <h4 className="font-mono">Tools</h4>
-              <ul>
-                <li>VS Code</li>
-                <li>Postman</li>
-                <li>Swagger</li>
-                <li>Slack</li>
-              </ul>
+              <Button3D
+                target="_blank"
+                download={true}
+                variant={"black"}
+                size={"sm"}
+                as="a"
+                href="/resume/CV___Apavayan_Sinha.pdf"
+              >
+                <span className="text-lg font-bold">Download Résumé</span>
+              </Button3D>
             </div>
           </div>
-        </section>
+          <Separator orientation="horizontal" className="w-full my-8" />
+          <section className="container mx-auto">
+            <h3 className="font-mono">
+              <span className="text-muted-foreground">02. </span>Skills
+            </h3>
+            <div className="font-mono flex flex-col py-4 skill-section">
+              <div className="gap-2">
+                <h4 className="font-mono w-full">Programming Languages</h4>
+                <ul>
+                  <li>HTML5</li>
+                  <li>CSS3</li>
+                  <li>JavaScript ES6+</li>
+                  <li>TypeScript 5</li>
+                  <li>Python 3</li>
+                  <li>Java 21+</li>
+                  <li>Kotlin</li>
+                  <li>C/C++</li>
+                  <li>C#</li>
+                  <li>PHP</li>
+                  <li>MySQL/MariaDB</li>
+                  <li>MongoDB</li>
+                  <li>Wordpress</li>
+                </ul>
+              </div>
+              <div className="gap-2">
+                <h4 className="font-mono w-full">Technologies</h4>
+                <ul>
+                  <li>Node.js</li>
+                  <li>Express.js</li>
+                  <li>Django</li>
+                  <li>Flask</li>
+                  <li>RESTful APIs</li>
+                  <li>GraphQL</li>
+                  <li>Laravel</li>
+                  <li>React.js 18+</li>
+                  <li>Next.js 14+</li>
+                  <li>Vue.js</li>
+                  <li>React Native</li>
+                  <li>Bootstrap 4/5</li>
+                  <li>Tailwind CSS</li>
+                </ul>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <h4 className="font-mono w-full">DevOps</h4>
+                <ul>
+                  <li>Git</li>
+                  <li>GitHub</li>
+                  <li>Docker</li>
+                  <li>Heroku</li>
+                  <li>Netlify</li>
+                  <li>AWS</li>
+                </ul>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <h4 className="font-mono w-full">Tools</h4>
+                <ul>
+                  <li>VS Code</li>
+                  <li>Postman</li>
+                  <li>Swagger</li>
+                  <li>Slack</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <Separator orientation="horizontal" className="w-full my-8" />
+          <section className="container mx-auto">
+            <h3 className="font-mono">
+              <span className="text-muted-foreground">03. </span>Where
+              I&rsquo;ve Worked
+            </h3>
+            <div className="grid md:grid-cols-2  grid-cols-1 gap-5 py-4">
+              <Card>
+                <CardHeader className="flex-row justify-between items-center">
+                  <div>
+                    <h6 className="font-mono">Software Engineer</h6>
+                    <a
+                      href="https://awokeindia.com"
+                      target="_blank"
+                      className="text-muted-foreground"
+                    >
+                      AWOKE India Consultant Pvt. Ltd.
+                    </a>
+                  </div>
+                  <div>
+                    <Image
+                      className="max-h-24 w-auto"
+                      src={AWOKEINDIALOGO}
+                      alt="Awoke India"
+                    />
+                  </div>
+                </CardHeader>
+                <CardContent></CardContent>
+                <CardFooter className="gap-4">
+                  <span className="font-semibold">Technologies</span>
+                  <ul className=" flex flex-wrap gap-2">
+                    <li>
+                      <Badge variant="default">Python</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">React.js</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Node.js</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Express.js</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">MySQL/MariaDB</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">MongoDB</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Next.js</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">AWS</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Git</Badge>
+                    </li>
+                  </ul>
+                </CardFooter>
+              </Card>
+              <Card>
+                <CardHeader className="flex-row justify-between items-center">
+                  <div>
+                    <h6 className="font-mono">Software Developer</h6>
+                    <a
+                      href="https://globalwebslink.com/"
+                      target="_blank"
+                      className="text-muted-foreground"
+                    >
+                      Global Webs Link
+                    </a>
+                  </div>
+                  <div>
+                    <Image src={GWLLOGO} alt="Global Webs Link" />
+                  </div>
+                </CardHeader>
+                <CardContent></CardContent>
+                <CardFooter className="gap-4">
+                  <span className="font-semibold">Technologies</span>
+                  <ul className="flex flex-wrap gap-2">
+                    <li>
+                      <Badge variant="default">React.js</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">PHP</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Laravel</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Python</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Django</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Wordpress</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">MySQL/MariaDB</Badge>
+                    </li>
+                    <li>
+                      <Badge variant="default">Git</Badge>
+                    </li>
+                  </ul>
+                </CardFooter>
+              </Card>
+            </div>
+          </section>
+        </CardContent>
       </Card>
     </React.Fragment>
   );
