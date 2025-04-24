@@ -6,7 +6,7 @@ import { useScene } from '@/context/SceneContext';
 import { Vector3 } from 'three';
 import { motion } from 'framer-motion';
 import { Environment, OrbitControls } from '@react-three/drei';
-import { FloatingCube } from './FloatingCube';
+import { FloatingText } from './FloatingText';
 
 const SceneContent = () => {
   const { sceneRef } = useScene();
@@ -32,7 +32,7 @@ const SceneContent = () => {
 
   return (
     <group ref={sceneRef}>
-      <FloatingCube />
+      <FloatingText />
       <OrbitControls enableZoom={false} enablePan={false} />
       <Environment preset="city" />
     </group>
