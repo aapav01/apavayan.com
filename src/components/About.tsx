@@ -79,7 +79,7 @@ const About = () => {
                       </motion.p>
                     ))}
                     <motion.blockquote 
-                      className="text-xl italic border-l-4 border-primary pl-4 my-8 group-hover:border-primary/80 transition-colors duration-300"
+                      className="text-xl italic border-l-4 border-primary pl-4 my-8 group-hover:border-primary/80 transition-colors duration-300 text-amber-400"
                       whileHover={{ scale: 1.02 }}
                     >
                       &ldquo;{about.quote}&rdquo;
