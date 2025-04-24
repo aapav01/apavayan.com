@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  IoLogoFacebook,
-  IoLogoGithub,
-  IoLogoInstagram,
-  IoLogoLinkedin,
-} from "react-icons/io5";
+import Navigation from "@/components/Navigation";
 
 type Props = {
   children: React.ReactNode;
@@ -12,22 +7,11 @@ type Props = {
 
 export default function RootTemplate({ children }: Props) {
   return (
-    <main className="container mx-auto py-10 md:p-10 lg:p-20">
-      <section className="flex flex-row gap-5 w-fit pb-4 ml-auto px-4">
-        <a href="https://github.com/aapav01" target="_blank" className="text-3xl text-primary hover:text-zinc-700">
-          <IoLogoGithub />
-        </a>
-        <a href="https://www.linkedin.com/in/apavayan/" target="_blank" className="text-3xl text-primary hover:text-blue-800">
-          <IoLogoLinkedin />
-        </a>
-        <a href="https://www.instagram.com/aapav/" target="_blank" className="text-3xl text-primary hover:text-pink-800">
-          <IoLogoInstagram />
-        </a>
-        <a href="https://www.facebook.com/aapav" target="_blank" className="text-3xl text-primary hover:text-blue-700">
-          <IoLogoFacebook  />
-        </a>
-      </section>
-      {children}
+    <main className="container mx-auto py-10 md:p-10 lg:p-20 relative z-10">
+      <Navigation />
+      <div className="mt-20">
+        {children}
+      </div>
     </main>
   );
 }

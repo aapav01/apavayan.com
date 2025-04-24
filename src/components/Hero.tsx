@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -90,7 +91,7 @@ const Hero = () => {
               whileTap="tap"
             >
               <Button size="lg" className="text-lg">
-                Get in Touch
+                <Link href="#contact">Get in Touch</Link>
               </Button>
             </motion.div>
             <motion.div
@@ -99,7 +100,7 @@ const Hero = () => {
               whileTap="tap"
             >
               <Button size="lg" variant="outline" className="text-lg">
-                View Projects
+                <Link href="#projects">View Projects</Link>
               </Button>
             </motion.div>
           </motion.div>

@@ -47,7 +47,7 @@ const buttonVariants = {
 
 const Contact = () => {
   return (
-    <section className="py-20">
+    <section id="contact" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
