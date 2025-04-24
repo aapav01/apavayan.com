@@ -28,20 +28,87 @@ const projects: Project[] = [
   },
   {
     title: "Xenium - Website & Fest Management System",
-    description: "The Web App was Designed to Showcase the Content and events and get Participation Information specific to the event they want to participate in. It had features like generating participation Certificates and generating entry tickets and also to scan and verify the ticket. Generate a Report specific to the event and also have filter options.\n (This was my first project in PHP when I was learning PHP. I have the ability to quickly learn and adapt.)",
+    description: "The Web App was Designed to Showcase the Content and events and get Participation Information specific to the event they want to participate in. It had features like generating participation Certificates and generating entry tickets and also to scan and verify the ticket. Generate a Report specific to the event and also have filter options.",
     technologies: ["PHP", "Laravel", "MySQL", "IIS"],
   },
 ];
 
-const Projects: React.FC = () => {
-  const [expandedDescriptions, setExpandedDescriptions] = useState<{ [key: string]: boolean }>({});
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+  isHovered: boolean;
+  onHover: (title: string | null) => void;
+}
 
-  const toggleDescription = (title: string) => {
-    setExpandedDescriptions(prev => ({
-      ...prev,
-      [title]: !prev[title]
-    }));
-  };
+function ProjectCard({ project, index, isHovered, onHover }: ProjectCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: index * 0.2 }}
+      viewport={{ once: true }}
+      className="transition-all duration-300 ease-out"
+      whileHover={{ 
+        y: -8,
+        boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+      }}
+      onMouseEnter={() => onHover(project.title)}
+      onMouseLeave={() => onHover(null)}
+    >
+      <Card className="h-full flex flex-col group hover:border-primary/50 transition-all duration-300 max-h-fit">
+        <CardHeader>
+          <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
+            {project.title}
+          </h3>
+        </CardHeader>
+        <CardContent className="flex-grow">
+          <div className="relative">
+            <p 
+              className={`text-muted-foreground mb-4 group-hover:text-foreground transition-colors duration-300 ${
+                isHovered ? 'line-clamp-none' : 'line-clamp-3'
+              }`}
+            >
+              {project.description}
+            </p>
+            {!isHovered && (
+              <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background to-transparent" />
+            )}
+          </div>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.technologies.map((tech) => (
+              <Badge 
+                key={tech} 
+                variant="secondary"
+                className="group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300"
+              >
+                {tech}
+              </Badge>
+            ))}
+          </div>
+          {project.link && (
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group-hover:border-primary/50"
+            >
+              <Button
+                variant="outline"
+                className="w-full group-hover:border-primary/50 group-hover:text-primary transition-colors duration-300"
+                onClick={() => window.open(project.link, "_blank")}
+              >
+                View Project
+                <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+            </motion.div>
+          )}
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+}
+
+function Projects() {
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   return (
     <section className="py-20">
@@ -64,79 +131,19 @@ const Projects: React.FC = () => {
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
-              <motion.div
+              <ProjectCard
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -8,
-                  boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-                }}
-                className="transition-all duration-300 ease-out"
-              >
-                <Card className="h-full flex flex-col group hover:border-primary/50">
-                  <CardHeader>
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <motion.div
-                      className="relative"
-                      onHoverStart={() => toggleDescription(project.title)}
-                      onHoverEnd={() => toggleDescription(project.title)}
-                    >
-                      <p 
-                        className={`text-muted-foreground mb-4 group-hover:text-foreground transition-colors duration-300 ${
-                          expandedDescriptions[project.title] 
-                            ? 'line-clamp-none' 
-                            : 'line-clamp-3'
-                        }`}
-                      >
-                        {project.description}
-                      </p>
-                      {!expandedDescriptions[project.title] && (
-                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background to-transparent" />
-                      )}
-                    </motion.div>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech) => (
-                        <Badge 
-                          key={tech} 
-                          variant="secondary"
-                          className="group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                    {project.link && (
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="group-hover:border-primary/50"
-                      >
-                        <Button
-                          variant="outline"
-                          className="w-full group-hover:border-primary/50 group-hover:text-primary transition-colors duration-300"
-                          onClick={() => window.open(project.link, "_blank")}
-                        >
-                          View Project
-                          <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                        </Button>
-                      </motion.div>
-                    )}
-                  </CardContent>
-                </Card>
-              </motion.div>
+                project={project}
+                index={index}
+                isHovered={hoveredProject === project.title}
+                onHover={setHoveredProject}
+              />
             ))}
           </div>
         </motion.div>
       </div>
     </section>
   );
-};
+}
 
 export default Projects; 
