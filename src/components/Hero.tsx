@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useScene } from "@/context/SceneContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -55,8 +54,6 @@ const floatingVariants = {
 };
 
 const Hero = () => {
-  const { sceneRef } = useScene();
-
   return (
     <motion.section
       variants={floatingVariants}
@@ -75,7 +72,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60"
           >
-            Hi, I'm Apavayan Sinha
+            Hi, I&apos;m Apavayan Sinha
           </motion.h1>
           <motion.p
             variants={itemVariants}

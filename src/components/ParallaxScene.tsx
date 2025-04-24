@@ -1,16 +1,15 @@
 "use client";
 
 import { useRef, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { useScene } from '@/context/SceneContext';
-import { Group, Vector3 } from 'three';
+import { Vector3 } from 'three';
 import { motion } from 'framer-motion';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { FloatingCube } from './FloatingCube';
 
 const SceneContent = () => {
   const { sceneRef } = useScene();
-  const { viewport } = useThree();
   const mouse = useRef<Vector3>(new Vector3(0, 0, 0));
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import { createContext, useContext, useRef, ReactNode } from 'react';
 import { Group } from 'three';
 
 interface SceneContextType {
-  sceneRef: React.RefObject<Group>;
+  sceneRef: React.RefObject<Group | null>;
 }
 
 const SceneContext = createContext<SceneContextType | null>(null);

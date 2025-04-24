@@ -62,14 +62,14 @@ const About = () => {
                     className="text-lg mb-6 group-hover:text-foreground transition-colors duration-300"
                     whileHover={{ x: 5 }}
                   >
-                    When I'm not coding, I'm exploring tech trends,
+                    When I&apos;m not coding, I&apos;m exploring tech trends,
                     capturing stunning photos, or pursuing my personal goals—
                   </motion.p>
                   <motion.blockquote 
                     className="text-xl italic border-l-4 border-primary pl-4 my-8 group-hover:border-primary/80 transition-colors duration-300"
                     whileHover={{ scale: 1.02 }}
                   >
-                    "Embark on an adventure, one line of code at a time."
+                    &ldquo;Embark on an adventure, one line of code at a time.&rdquo;
                   </motion.blockquote>
                 </motion.div>
                 
