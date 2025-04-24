@@ -1,25 +1,27 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent } from './ui/card';
-import { Badge } from './ui/badge';
+'use client';
 
-const skills = {
-  languages: [
-    "HTML5", "CSS3", "JavaScript ES6+", "TypeScript 5", "Python 3",
-    "Java 21+", "Kotlin", "C/C++", "C#", "PHP", "MySQL/MariaDB",
-    "MongoDB", "Wordpress"
-  ],
-  technologies: [
-    "Node.js", "Express.js", "Django", "Flask", "RESTful APIs",
-    "GraphQL", "Laravel", "React.js 18+", "Next.js 14+", "Vue.js",
-    "React Native", "Bootstrap 4/5", "Tailwind CSS"
-  ],
-  devops: [
-    "Git", "GitHub", "Docker", "Heroku", "Netlify", "AWS"
-  ],
-  tools: [
-    "VS Code", "Postman", "Swagger", "Slack"
-  ]
-};
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+const skills = [
+  {
+    category: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion" , "three.js"],
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "Express", "Python", "Django", "MySql", "MonogoDB", "Java", "SpringBoot"],
+  },
+  {
+    category: "DevOps",
+    items: ["Docker", "AWS", "Git", "CI/CD", "Linux"],
+  },
+  {
+    category: "Tools",
+    items: ["VS Code", "GitHub", "Postman", "Swagger", "Jira"],
+  },
+];
 
 const Skills = () => {
   return (
@@ -30,80 +32,76 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gradient-500">
-            Skills
-          </h2>
-          
-          <Card className="bg-background/50 backdrop-blur-sm">
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-2xl font-bold mb-4">Programming Languages</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.languages.map((skill, index) => (
-                      <Badge key={index} variant="outline" className="text-sm">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-2xl font-bold mb-4">Technologies</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.technologies.map((skill, index) => (
-                      <Badge key={index} variant="outline" className="text-sm">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-2xl font-bold mb-4">DevOps</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.devops.map((skill, index) => (
-                      <Badge key={index} variant="outline" className="text-sm">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-2xl font-bold mb-4">Tools</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.tools.map((skill, index) => (
-                      <Badge key={index} variant="outline" className="text-sm">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-            </CardContent>
-          </Card>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60"
+          >
+            Skills & Expertise
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill.category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                }}
+                className="transition-all duration-300 ease-out"
+              >
+                <Card className="h-full group hover:border-primary/50">
+                  <CardHeader>
+                    <motion.h3 
+                      className="text-xl font-semibold group-hover:text-primary transition-colors duration-300"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {skill.category}
+                    </motion.h3>
+                  </CardHeader>
+                  <CardContent>
+                    <motion.div 
+                      className="flex flex-wrap gap-2"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.8, delay: index * 0.2 + 0.4 }}
+                      viewport={{ once: true }}
+                    >
+                      {skill.items.map((item, itemIndex) => (
+                        <motion.div
+                          key={item}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ 
+                            duration: 0.5, 
+                            delay: index * 0.2 + itemIndex * 0.1,
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 10
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          <Badge 
+                            variant="secondary"
+                            className="group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300"
+                          >
+                            {item}
+                          </Badge>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

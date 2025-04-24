@@ -1,106 +1,99 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { Card, CardContent, CardHeader } from './ui/card';
-import { Badge } from './ui/badge';
-import Image from 'next/image';
-import AWOKEINDIALOGO from '@/company/logos/awokeindia.png';
-import GWLLOGO from '@/company/logos/gwl.png';
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const experiences = [
   {
-    company: "AWOKE India Consultant Pvt. Ltd.",
-    role: "Software Engineer",
-    period: "Sep 2023 - Present",
-    logo: AWOKEINDIALOGO,
-    achievements: [
-      "Collaborated with the Project Manager to document user requirements for the Internal Management Platform, improving project delivery timelines by 25%.",
-      "Increased application performance by 36% through modern system design and architecture.",
-      "Automated reporting features that enhanced regulatory compliance audits.",
-      "Deployed Redis as a caching solution, achieving a 20% reduction in database load.",
-      "Automated more than 50% of H.R. Process by implementing and customization of HRMS.",
-    ],
-    technologies: ["Python", "React.js", "Node.js", "Express.js", "MySQL/MariaDB", "MongoDB", "Next.js", "AWS", "Git"]
+    company: "AWOKE India",
+    role: "Senior Software Developer - Full Stack",
+    period: "Sept 2023 - Present",
+    description: "Leading the development of enterprise applications using modern web technologies.",
+    technologies: ["React", "Next.js",  "Node.js", "Python", "Frappe Framework", "MySQL", "MongoDB", "AWS"],
   },
   {
     company: "Global Webs Link",
     role: "Software Developer",
     period: "Sep 2019 - Jul 2021",
-    logo: GWLLOGO,
-    achievements: [
-      "Developed cross-platform mobile apps for news aggregation on Android and iOS.",
-      "Created a web application for managing Virtual Marathon events, supporting 1,500+ participants.",
-      "Developed an Internal Job Reference System for the Alumni Portal.",
-      "Integrated an innovative Gallery feature utilizing REST APIs within a React.js application.",
-    ],
-    technologies: ["React.js", "PHP", "Laravel", "Python", "Django", "Wordpress", "MySQL/MariaDB", "Git"]
-  }
+    description: "Developed and maintained multiple web applications for various clients.",
+    technologies: ["React", "Python", "Django", "JavaScript", "MySQL", "AWS"],
+  },
 ];
 
 const Experience = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [50, 0, 0, -50]);
-
   return (
-    <section id="experience" className="py-20">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
-          ref={containerRef}
-          style={{ opacity, y }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gradient-500">
-            Experience
-          </h2>
-
-          <div className="space-y-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60"
+          >
+            Work Experience
+          </motion.h2>
+          <div className="space-y-6">
             {experiences.map((exp, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                key={exp.company}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
+                whileHover={{ 
+                  x: 5,
+                  boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                }}
+                className="transition-all duration-300 ease-out"
               >
-                <Card className="bg-background/50 backdrop-blur-sm">
-                  <CardHeader className="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div>
-                      <h3 className="text-2xl font-bold">{exp.role}</h3>
-                      <a
-                        href={exp.company === "AWOKE India Consultant Pvt. Ltd." ? "https://awokeindia.com" : "https://globalwebslink.com/"}
-                        target="_blank"
-                        className="text-muted-foreground hover:text-primary transition-colors"
+                <Card className="group hover:border-primary/50">
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <motion.h3 
+                          className="text-xl font-semibold group-hover:text-primary transition-colors duration-300"
+                          whileHover={{ x: 5 }}
+                        >
+                          {exp.role}
+                        </motion.h3>
+                        <motion.p 
+                          className="text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                          whileHover={{ x: 5 }}
+                        >
+                          {exp.company}
+                        </motion.p>
+                      </div>
+                      <Badge 
+                        variant="outline"
+                        className="group-hover:border-primary/50 group-hover:text-primary transition-colors duration-300"
                       >
-                        {exp.company}
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm text-muted-foreground">{exp.period}</span>
-                      <Image
-                        src={exp.logo}
-                        alt={exp.company}
-                        className="max-h-12 w-auto"
-                      />
+                        {exp.period}
+                      </Badge>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <ul className="list-disc pl-6 space-y-2 mb-6">
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="text-muted-foreground">
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
+                    <motion.p 
+                      className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors duration-300"
+                      whileHover={{ x: 5 }}
+                    >
+                      {exp.description}
+                    </motion.p>
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, i) => (
-                        <Badge key={i} variant="outline">
+                      {exp.technologies.map((tech) => (
+                        <Badge 
+                          key={tech} 
+                          variant="secondary"
+                          className="group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300"
+                        >
                           {tech}
                         </Badge>
                       ))}
