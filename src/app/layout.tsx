@@ -3,13 +3,15 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { Inter, Roboto_Mono } from 'next/font/google'
- 
+import { SceneProvider } from "@/context/SceneContext";
+import { ParallaxScene } from "@/components/ParallaxScene";
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 })
- 
+
 const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
   variable: '--font-roboto-mono',
@@ -66,7 +68,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div>{children}</div>
+          <SceneProvider>
+            <ParallaxScene />
+            <div>{children}</div>
+          </SceneProvider>
           <Toaster />
         </ThemeProvider>
       </body>
