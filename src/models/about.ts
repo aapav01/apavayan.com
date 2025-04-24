@@ -17,5 +17,5 @@ export const about: About = {
     "When I'm not coding, I'm exploring tech trends, capturing stunning photos, or pursuing my personal goals—",
   ],
   location: "India 🇮🇳",
-  quote: "Embark on an adventure, one line of code at a time.",
+  quote: "Embark on an adventure, Like a line of code at a time.",
 }; 
