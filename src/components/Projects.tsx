@@ -49,13 +49,13 @@ function ProjectCard({ project, index, isHovered, onHover }: ProjectCardProps) {
       viewport={{ once: true }}
       className="transition-all duration-300 ease-out"
       whileHover={{ 
-        y: -8,
+        y: -5,
         boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
       }}
       onMouseEnter={() => onHover(project.title)}
       onMouseLeave={() => onHover(null)}
     >
-      <Card className="h-full flex flex-col group hover:border-primary/50 transition-all duration-300 max-h-fit">
+      <Card className="h-full group hover:border-primary/50 bg-background/90 backdrop-blur">
         <CardHeader>
           <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
             {project.title}

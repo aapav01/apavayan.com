@@ -57,7 +57,7 @@ const Skills = () => {
                 }}
                 className="transition-all duration-300 ease-out"
               >
-                <Card className="h-full group hover:border-primary/50">
+                <Card className="h-full group hover:border-primary/50 bg-background/90 backdrop-blur">
                   <CardHeader>
                     <motion.h3 
                       className="text-xl font-semibold group-hover:text-primary transition-colors duration-300"

@@ -31,7 +31,7 @@ const About = () => {
             }}
             className="transition-all duration-300 ease-out"
           >
-            <Card className="bg-background/50 backdrop-blur-sm group hover:border-primary/50">
+            <Card className="bg-background/90 backdrop-blur group hover:border-primary/50">
               <CardContent className="p-8">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

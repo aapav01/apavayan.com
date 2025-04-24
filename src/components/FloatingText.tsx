@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Group, Vector3 } from 'three';
-import { Text, Text3D, Center } from '@react-three/drei';
+import { Text3D, Center } from '@react-three/drei';
 import { useTheme } from 'next-themes';
 
 const skills = [
@@ -30,51 +30,59 @@ const colors = {
   }
 };
 
+interface SkillRef {
+  axis: [number, number, number];
+  speed: number;
+  orbitRadius: number;
+}
+
 export const FloatingText = () => {
   const groupRef = useRef<Group>(null);
   const centerRef = useRef<Group>(null);
-  const skillRefs = useRef<{ [key: string]: { axis: [number, number, number], speed: number, orbitRadius: number } }>({});
+  const skillRefs = useRef<{ [key: string]: SkillRef }>({});
   const { theme } = useTheme();
   const currentColor = theme === 'dark' ? colors.dark : colors.light;
 
   // Initialize random axes, speeds, and orbit radii for each skill
   useEffect(() => {
-    if (Object.keys(skillRefs.current).length === 0) {
-      skills.forEach(skill => {
-        skillRefs.current[skill] = {
-          axis: [
-            Math.random() * 2 - 1,
-            Math.random() * 2 - 1,
-            Math.random() * 2 - 1
-          ],
-          speed: 0.3 + Math.random() * 0.3, // Slower, more controlled rotation
-          orbitRadius: 2 + Math.random() * 2 // Smaller orbit radius
-        };
-      });
-    }
+    const skillRefsObj: { [key: string]: SkillRef } = {};
+    skills.forEach(skill => {
+      skillRefsObj[skill] = {
+        axis: [
+          Math.random() * 2 - 1,
+          Math.random() * 2 - 1,
+          Math.random() * 2 - 1
+        ],
+        speed: 0.3 + Math.random() * 0.3,
+        orbitRadius: 2 + Math.random() * 2
+      };
+    });
+    skillRefs.current = skillRefsObj;
   }, []);
 
   useFrame((state) => {
-    if (groupRef.current) {
+    if (groupRef.current && skillRefs.current) {
       // Only rotate the orbiting skills, not the central text
       groupRef.current.children.forEach((child, index) => {
-        if (index > 0) { // Skip the central text
+        if (index > 0 && index <= skills.length) { // Skip the central text group and check bounds
           const skill = skills[index - 1];
-          const { axis, speed, orbitRadius } = skillRefs.current[skill];
+          const skillRef = skillRefs.current[skill];
           
-          // Calculate position on the orbit
-          const time = state.clock.elapsedTime;
-          const angle = time * speed;
-          const x = Math.cos(angle) * orbitRadius;
-          const z = Math.sin(angle) * orbitRadius;
-          const y = Math.sin(time * 2 + index) * 0.3; // Subtle vertical movement
+          if (skillRef) {
+            // Calculate position on the orbit
+            const time = state.clock.elapsedTime;
+            const angle = time * skillRef.speed;
+            const x = Math.cos(angle) * skillRef.orbitRadius;
+            const z = Math.sin(angle) * skillRef.orbitRadius;
+            const y = Math.sin(time * 2 + index) * 0.3; // Subtle vertical movement
 
-          child.position.set(x, y, z);
-          
-          // Add slight rotation to the text itself
-          child.rotation.x += axis[0] * speed * 0.005;
-          child.rotation.y += axis[1] * speed * 0.005;
-          child.rotation.z += axis[2] * speed * 0.005;
+            child.position.set(x, y, z);
+            
+            // Add slight rotation to the text itself
+            child.rotation.x += skillRef.axis[0] * skillRef.speed * 0.005;
+            child.rotation.y += skillRef.axis[1] * skillRef.speed * 0.005;
+            child.rotation.z += skillRef.axis[2] * skillRef.speed * 0.005;
+          }
         }
       });
     }
@@ -90,10 +98,10 @@ export const FloatingText = () => {
       {/* Central Text - Static with Text3D */}
       <group position={[0, 0, -1]} ref={centerRef}>
         <Text3D
-          position={[calculateOffset("Full", 0.5), 0.8, 0]}
+          position={[calculateOffset("Full", 0.7), 1.2, 0]}
           font="/fonts/helvetiker_regular.typeface.json"
-          size={0.5}
-          height={0.1}
+          size={0.7}
+          height={0.15}
           curveSegments={12}
           bevelEnabled
           bevelThickness={0.02}
@@ -106,10 +114,10 @@ export const FloatingText = () => {
           Full
         </Text3D>
         <Text3D
-          position={[calculateOffset("Stack", 0.5), 0, 0]}
+          position={[calculateOffset("Stack", 0.7), 0, 0]}
           font="/fonts/helvetiker_regular.typeface.json"
-          size={0.5}
-          height={0.1}
+          size={0.7}
+          height={0.15}
           curveSegments={12}
           bevelEnabled
           bevelThickness={0.02}
@@ -122,10 +130,10 @@ export const FloatingText = () => {
           Stack
         </Text3D>
         <Text3D
-          position={[calculateOffset("Developer", 0.5), -0.8, 0]}
+          position={[calculateOffset("Developer", 0.7), -1.2, 0]}
           font="/fonts/helvetiker_regular.typeface.json"
-          size={0.5}
-          height={0.1}
+          size={0.7}
+          height={0.15}
           curveSegments={12}
           bevelEnabled
           bevelThickness={0.02}
@@ -141,24 +149,28 @@ export const FloatingText = () => {
 
       {/* Orbiting Skills */}
       {skills.map((skill, index) => {
-        const { orbitRadius } = skillRefs.current[skill] || { orbitRadius: 3 };
+        const skillRef = skillRefs.current[skill];
+        const orbitRadius = skillRef?.orbitRadius || 3;
         const color = index % 2 === 0 ? currentColor.secondary : currentColor.tertiary;
 
         return (
-          <Text
-            key={skill}
-            position={[0, 0, 0]} // Initial position, will be updated in useFrame
-            color={color}
-            fontSize={0.3} // Smaller text
-            maxWidth={2}
-            lineHeight={1}
-            letterSpacing={0.02}
-            textAlign="center"
-            anchorX="center"
-            anchorY="middle"
-          >
-            {skill}
-          </Text>
+          <group key={skill} position={[0, 0, 0]}>
+            <Text3D
+              font="/fonts/helvetiker_regular.typeface.json"
+              size={0.2}
+              height={0.05}
+              curveSegments={8}
+              bevelEnabled
+              bevelThickness={0.01}
+              bevelSize={0.01}
+              bevelOffset={0}
+              bevelSegments={3}
+              letterSpacing={0.02}
+            >
+              <meshStandardMaterial color={color} />
+              {skill}
+            </Text3D>
+          </group>
         );
       })}
     </group>

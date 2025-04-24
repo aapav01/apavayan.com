@@ -66,7 +66,7 @@ const Hero = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-2xl"
+          className="max-w-3xl bg-background/90 p-8 rounded-lg backdrop-blur"
         >
           <motion.h1
             variants={itemVariants}

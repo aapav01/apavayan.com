@@ -11,12 +11,31 @@ import { FloatingText } from './FloatingText';
 const SceneContent = () => {
   const { sceneRef } = useScene();
   const mouse = useRef<Vector3>(new Vector3(0, 0, 0));
+  const targetRotation = useRef<Vector3>(new Vector3(0, 0, 0));
+  const prevMouse = useRef<Vector3>(new Vector3(0, 0, 0));
+  const lerpFactor = 0.05; // Adjust this value to control smoothness (0.01 to 0.1)
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
+      // Update current mouse position
       const x = (event.clientX / window.innerWidth) * 2 - 1;
       const y = -(event.clientY / window.innerHeight) * 2 + 1;
       mouse.current.set(x, y, 0);
+
+      // Calculate movement direction
+      const deltaX = mouse.current.x - prevMouse.current.x;
+      const deltaY = mouse.current.y - prevMouse.current.y;
+
+      // Only update target rotation if movement is significant
+      if (Math.abs(deltaX) > 0.001 || Math.abs(deltaY) > 0.001) {
+        // Calculate new target rotation
+        targetRotation.current.x += deltaY * 0.1;
+        targetRotation.current.y += deltaX * 0.1;
+
+        // Clamp rotations to prevent extreme angles
+        targetRotation.current.x = Math.max(-0.5, Math.min(0.5, targetRotation.current.x));
+        targetRotation.current.y = Math.max(-0.5, Math.min(0.5, targetRotation.current.y));
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -25,15 +44,25 @@ const SceneContent = () => {
 
   useFrame(() => {
     if (sceneRef.current) {
-      sceneRef.current.rotation.x = mouse.current.y * 0.1;
-      sceneRef.current.rotation.y = mouse.current.x * 0.1;
+      // Smoothly interpolate current rotation to target rotation
+      sceneRef.current.rotation.x += (targetRotation.current.x - sceneRef.current.rotation.x) * lerpFactor;
+      sceneRef.current.rotation.y += (targetRotation.current.y - sceneRef.current.rotation.y) * lerpFactor;
+
+      // Add slight natural movement
+      const time = Date.now() * 0.001;
+      sceneRef.current.rotation.x += Math.sin(time) * 0.001;
+      sceneRef.current.rotation.y += Math.cos(time) * 0.001;
     }
   });
 
   return (
     <group ref={sceneRef}>
       <FloatingText />
-      <OrbitControls enableZoom={false} enablePan={false} />
+      <OrbitControls 
+        enableZoom={false} 
+        enablePan={false}
+        enableRotate={false} // Disable OrbitControls rotation since we're handling it
+      />
       <Environment preset="city" />
     </group>
   );

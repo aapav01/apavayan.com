@@ -64,7 +64,7 @@ const Contact = () => {
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div variants={itemVariants}>
-              <Card>
+              <Card className="group hover:border-primary/50 bg-background/90 backdrop-blur">
                 <CardHeader>
                   <motion.h3 
                     variants={itemVariants}
@@ -116,7 +116,7 @@ const Contact = () => {
               </Card>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <Card>
+              <Card className="group hover:border-primary/50 bg-background/90 backdrop-blur">
                 <CardHeader>
                   <motion.h3 
                     variants={itemVariants}

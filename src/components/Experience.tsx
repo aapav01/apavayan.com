@@ -55,7 +55,7 @@ const Experience = () => {
                 }}
                 className="transition-all duration-300 ease-out"
               >
-                <Card className="group hover:border-primary/50">
+                <Card className="h-full group hover:border-primary/50 bg-background/90 backdrop-blur">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div>
