@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useEffect } from 'react';
+import { Text3D } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { Group, Vector3 } from 'three';
-import { Text3D, Center } from '@react-three/drei';
 import { useTheme } from 'next-themes';
+import { useEffect, useRef } from 'react';
+import { Group } from 'three';
 
 const skills = [
   // Frontend
@@ -149,8 +149,7 @@ export const FloatingText = () => {
 
       {/* Orbiting Skills */}
       {skills.map((skill, index) => {
-        const skillRef = skillRefs.current[skill];
-        const orbitRadius = skillRef?.orbitRadius || 3;
+        // const skillRef = skillRefs.current[skill];
         const color = index % 2 === 0 ? currentColor.secondary : currentColor.tertiary;
 
         return (
