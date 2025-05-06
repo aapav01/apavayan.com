@@ -67,7 +67,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="prose prose-invert max-w-none"
+                    className="prose prose-invert max-w-none text-muted-foreground"
                   >
                     {about.details.map((detail, index) => (
                       <motion.p 
@@ -79,7 +79,7 @@ const About = () => {
                       </motion.p>
                     ))}
                     <motion.blockquote 
-                      className="text-xl italic border-l-4 border-primary pl-4 my-8 group-hover:border-primary/80 transition-colors duration-300 text-amber-400"
+                      className="text-xl italic border-l-4 border-primary pl-4 my-8 group-hover:border-primary/80 transition-colors duration-300 text-amber-700 dark:text-amber-400"
                       whileHover={{ scale: 1.02 }}
                     >
                       &ldquo;{about.quote}&rdquo;
