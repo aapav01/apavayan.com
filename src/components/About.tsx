@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import * as motion from "motion/react-client";
 import { Card, CardContent } from './ui/card';
 import { useApiData } from '@/hooks/useApiData';
 import { About as AboutType } from '@/models/about';

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client"
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

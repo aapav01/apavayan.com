@@ -4,7 +4,7 @@ import { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useScene } from '@/context/SceneContext';
 import { Vector3 } from 'three';
-import { motion } from 'framer-motion';
+import * as motion from "motion/react-client"
 import { Environment, OrbitControls } from '@react-three/drei';
 import { FloatingText } from './FloatingText';
 
