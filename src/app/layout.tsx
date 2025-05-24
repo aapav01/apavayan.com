@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import { ParallaxScene } from "@/components/ParallaxScene";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import { Inter, Roboto_Mono } from 'next/font/google'
 import { SceneProvider } from "@/context/SceneContext";
-import { ParallaxScene } from "@/components/ParallaxScene";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata } from "next";
+import { Inter, Roboto_Mono } from 'next/font/google';
 import Script from 'next/script';
+import "./globals.css";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -74,10 +75,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'your-google-site-verification',
-    yandex: 'your-yandex-verification',
   },
   category: 'technology',
   classification: 'Portfolio Website',
@@ -159,6 +156,7 @@ export default function RootLayout({
           <Toaster />
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-7DJPKDHCRT" />
     </html>
   );
 }
