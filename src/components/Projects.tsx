@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import * as motion from "motion/react-client"
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -25,7 +25,7 @@ function ProjectCard({ project, index, isHovered, onHover }: ProjectCardProps) {
       transition={{ duration: 0.8, delay: index * 0.2 }}
       viewport={{ once: true }}
       className="transition-all duration-300 ease-out"
-      whileHover={{ 
+      whileHover={{
         y: -5,
         boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
       }}
@@ -40,7 +40,7 @@ function ProjectCard({ project, index, isHovered, onHover }: ProjectCardProps) {
         </CardHeader>
         <CardContent className="flex-grow">
           <div className="relative">
-            <p 
+            <p
               className={`text-muted-foreground mb-4 group-hover:text-foreground transition-colors duration-300 ${
                 isHovered ? 'line-clamp-none' : 'line-clamp-3'
               }`}
@@ -53,8 +53,8 @@ function ProjectCard({ project, index, isHovered, onHover }: ProjectCardProps) {
           </div>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech) => (
-              <Badge 
-                key={tech} 
+              <Badge
+                key={tech}
                 variant="secondary"
                 className="group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300"
               >
@@ -110,7 +110,7 @@ function Projects() {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -152,4 +152,4 @@ function Projects() {
   );
 }
 
-export default Projects; 
+export default Projects;

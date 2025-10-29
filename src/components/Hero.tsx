@@ -1,5 +1,3 @@
-'use client';
-
 import * as motion from "motion/react-client"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -110,4 +108,4 @@ const Hero = () => {
   );
 };
 
-export default Hero; 
+export default Hero;
