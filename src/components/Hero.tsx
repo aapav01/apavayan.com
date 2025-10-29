@@ -11,7 +11,7 @@ const containerVariants = {
       delayChildren: 0.3,
     },
   },
-};
+} as const;
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -19,18 +19,18 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 10,
     },
   },
-};
+} as const;
 
 const buttonVariants = {
   hover: {
     scale: 1.05,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 10,
     },
@@ -38,16 +38,16 @@ const buttonVariants = {
   tap: {
     scale: 0.95,
   },
-};
+} as const;
 
 const floatingVariants = {
   initial: { y: 0 },
   animate: {
-    y: [0, -10, 0],
+    y: [0, -10, 0] as number[],
     transition: {
       duration: 4,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
     },
   },
 };

@@ -18,7 +18,7 @@ const containerVariants = {
       delayChildren: 0.3,
     },
   },
-};
+} as const;
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -26,18 +26,18 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 10,
     },
   },
-};
+} as const;
 
 const buttonVariants = {
   hover: {
     scale: 1.05,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 10,
     },
@@ -45,7 +45,7 @@ const buttonVariants = {
   tap: {
     scale: 0.95,
   },
-};
+} as const;
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -100,7 +100,7 @@ const Contact = () => {
           variants={containerVariants}
           className="max-w-4xl mx-auto"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
             className="text-3xl md:text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60"
           >
@@ -110,7 +110,7 @@ const Contact = () => {
             <motion.div variants={itemVariants}>
               <Card className="group hover:border-primary/50 bg-background/90 backdrop-blur">
                 <CardHeader>
-                  <motion.h3 
+                  <motion.h3
                     variants={itemVariants}
                     className="text-xl font-semibold"
                   >
@@ -118,7 +118,7 @@ const Contact = () => {
                   </motion.h3>
                 </CardHeader>
                 <CardContent>
-                  <motion.form 
+                  <motion.form
                     variants={containerVariants}
                     className="space-y-4"
                     onSubmit={handleSubmit}
@@ -127,9 +127,9 @@ const Contact = () => {
                       <label htmlFor="name" className="text-sm font-medium">
                         Name
                       </label>
-                      <Input 
-                        id="name" 
-                        placeholder="Your name" 
+                      <Input
+                        id="name"
+                        placeholder="Your name"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -139,10 +139,10 @@ const Contact = () => {
                       <label htmlFor="email" className="text-sm font-medium">
                         Email
                       </label>
-                      <Input 
-                        id="email" 
-                        type="email" 
-                        placeholder="your@email.com" 
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="your@email.com"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -167,8 +167,8 @@ const Contact = () => {
                         whileHover="hover"
                         whileTap="tap"
                       >
-                        <Button 
-                          className="w-full" 
+                        <Button
+                          className="w-full"
                           type="submit"
                           disabled={isSubmitting}
                         >
@@ -183,7 +183,7 @@ const Contact = () => {
             <motion.div variants={itemVariants}>
               <Card className="group hover:border-primary/50 bg-background/90 backdrop-blur">
                 <CardHeader>
-                  <motion.h3 
+                  <motion.h3
                     variants={itemVariants}
                     className="text-xl font-semibold"
                   >
@@ -191,17 +191,17 @@ const Contact = () => {
                   </motion.h3>
                 </CardHeader>
                 <CardContent>
-                  <motion.div 
+                  <motion.div
                     variants={containerVariants}
                     className="space-y-4"
                   >
-                    <motion.p 
+                    <motion.p
                       variants={itemVariants}
                       className="text-muted-foreground"
                     >
                       Feel free to reach out through any of these platforms:
                     </motion.p>
-                    <motion.div 
+                    <motion.div
                       variants={containerVariants}
                       className="flex flex-col gap-4"
                     >
@@ -243,4 +243,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;
