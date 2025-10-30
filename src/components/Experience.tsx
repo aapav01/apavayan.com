@@ -1,11 +1,13 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { fetchApiData } from "@/lib/api";
+import { useApiData } from "@/hooks/useApiData";
 import { Experience as ExperienceType } from "@/models/experiences";
 import * as motion from "motion/react-client";
 
-const Experience = async () => {
-  const { data: experiences, error } = await fetchApiData<ExperienceType[]>('experiences');
+const Experience = () => {
+  const { data: experiences, error } = useApiData<ExperienceType[]>('experiences');
 
   if (error) {
     return (

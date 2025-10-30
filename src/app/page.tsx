@@ -7,7 +7,7 @@ import Skills from "@/components/Skills";
 import * as motion from "motion/react-client";
 
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <motion.main
       initial={{ opacity: 0 }}

@@ -1,10 +1,12 @@
+"use client";
+
 import * as motion from "motion/react-client";
 import { Card, CardContent } from "./ui/card";
 import { About as AboutType } from "@/models/about";
-import { fetchApiData } from "@/lib/api";
+import { useApiData } from "@/hooks/useApiData";
 
-const About = async () => {
-  const { data: about, error } = await fetchApiData<AboutType>("about");
+const About = () => {
+  const { data: about, error } = useApiData<AboutType>("about");
 
   if (error) {
     return (

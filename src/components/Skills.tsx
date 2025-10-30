@@ -1,11 +1,13 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { fetchApiData } from "@/lib/api";
+import { useApiData } from "@/hooks/useApiData";
 import { Skill } from "@/models/skills";
 import * as motion from "motion/react-client";
 
-const Skills = async () => {
-  const { data: skills, error } = await fetchApiData<Skill[]>("skills");
+const Skills = () => {
+  const { data: skills, error } = useApiData<Skill[]>("skills");
 
   if (error) {
     return (
