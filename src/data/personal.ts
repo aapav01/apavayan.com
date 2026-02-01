@@ -1,10 +1,10 @@
 export const personal = {
   name: 'Apavayan Sinha',
-  title: 'Full Stack Software Architect',
+  title: 'Full Stack GenAI Software Architect',
   subtitle: '4+ Years Building Scalable Systems',
   tagline:
-    'I architect and build high-performance applications with modern technologies, specializing in React, Spring Boot, and AI/ML integrations.',
-  bio: `Full Stack Developer with 4+ years of hands-on experience in Java Spring Boot, React.js, Next.js, Python, and microservices architecture. Skilled in designing scalable systems, leading small teams, and delivering AI-powered solutions that drive measurable business outcomes.`,
+    'I architect and build high-performance applications with modern technologies, specializing in React, Node.js, Spring Boot, FastAPI and AI/ML integrations.',
+  bio: `Full Stack Developer with 4+ years of hands-on experience in Java Spring Boot, Node.js, React.js, Next.js, Python, and microservices architecture. Skilled in designing scalable systems, leading small teams, and delivering AI-powered solutions that drive measurable business outcomes.`,
   location: 'Lucknow, India',
   email: 'apavayansinha@gmail.com',
   phone: '+91 9935960111',

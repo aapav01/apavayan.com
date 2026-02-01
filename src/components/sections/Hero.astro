@@ -5,16 +5,19 @@ import { Linkedin } from '@lucide/astro';
 import { Mail as Email } from '@lucide/astro';
 ---
 
-<section class="py-20 md:py-32">
-  <div class="max-w-5xl mx-auto px-4">
+<section class="relative py-20 md:py-32 overflow-hidden">
+  <!-- Animated Gradient Background -->
+  <div class="absolute inset-0 gradient-bg -z-10"></div>
+
+  <div class="max-w-5xl mx-auto px-4 relative">
     <p class="text-primary-600 dark:text-primary-500 font-medium mb-2 text-lg">Hi, I'm</p>
     <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
       {personal.name}
     </h1>
-    <p class="text-xl md:text-2xl text-neutral-500 dark:text-neutral-400 mb-4">
+    <p class="text-xl md:text-2xl text-neutral-900 dark:text-neutral-1000 mb-4">
       {personal.title} <span class="text-neutral-400 dark:text-neutral-500">|</span> {personal.subtitle}
     </p>
-    <p class="max-w-2xl text-lg text-neutral-500 dark:text-neutral-400 mb-8">
+    <p class="max-w-2xl text-lg text-neutral-900 dark:text-neutral-1000 mb-8">
       {personal.tagline}
     </p>
 
@@ -32,7 +35,7 @@ import { Mail as Email } from '@lucide/astro';
         href={personal.links.github}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-1000 transition-colors"
+        class="text-neutral-900 hover:text-primary-600 dark:text-neutral-1000 dark:hover:text-primary-500 transition-colors"
         aria-label="GitHub"
       >
         <Github class="w-6 h-6" />
@@ -41,14 +44,14 @@ import { Mail as Email } from '@lucide/astro';
         href={personal.links.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-1000 transition-colors"
+        class="text-neutral-900 hover:text-primary-600 dark:text-neutral-1000 dark:hover:text-primary-500 transition-colors"
         aria-label="LinkedIn"
       >
         <Linkedin class="w-6 h-6" />
       </a>
       <a
         href={`mailto:${personal.email}`}
-        class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-1000 transition-colors"
+        class="text-neutral-900 hover:text-primary-600 dark:text-neutral-1000 dark:hover:text-primary-500 transition-colors"
         aria-label="Email"
       >
         <Email class="w-6 h-6" />

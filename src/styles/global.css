@@ -46,6 +46,7 @@
 
   /* Animation */
   --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-gradient: gradient-shift 8s ease infinite;
 
   @keyframes fade-in {
     from {
@@ -55,6 +56,33 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes gradient-rotate {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 }
@@ -86,6 +114,94 @@
 
 /* Prose/Typography Styles for Blog */
 @layer components {
+  /* Animated Gradient Background */
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-50) 0%,
+      var(--color-accent-100) 25%,
+      var(--color-primary-100) 50%,
+      var(--color-accent-100) 75%,
+      var(--color-primary-50) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .dark .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      var(--color-neutral-950) 0%,
+      var(--color-accent-900) 25%,
+      var(--color-primary-900) 50%,
+      var(--color-accent-900) 75%,
+      var(--color-neutral-950) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* Animated Gradient Text */
+  .gradient-text {
+    background: linear-gradient(
+      120deg,
+      var(--color-primary-700) 0%,
+      var(--color-accent-600) 25%,
+      var(--color-primary-600) 50%,
+      var(--color-accent-500) 75%,
+      var(--color-primary-700) 100%
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 12s linear infinite;
+  }
+
+  .dark .gradient-text {
+    background: linear-gradient(
+      120deg,
+      var(--color-primary-500) 0%,
+      var(--color-accent-400) 25%,
+      var(--color-primary-600) 50%,
+      var(--color-accent-500) 75%,
+      var(--color-primary-500) 100%
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 12s linear infinite;
+  }
+
+  /* Gradient Accent Effect */
+  .gradient-accent {
+    position: relative;
+  }
+
+  .gradient-accent::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-primary-500) 25%,
+      var(--color-accent-500) 50%,
+      var(--color-primary-500) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    opacity: 0.15;
+    animation: gradient-shift 4s ease infinite;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .dark .gradient-accent::before {
+    opacity: 0.1;
+  }
+
   .prose {
     max-width: 65ch;
     line-height: 1.75;
