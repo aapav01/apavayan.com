@@ -1,6 +1,6 @@
 {
 	"main": "dist/_worker.js/index.js",
-	"name": "apavayan.com",
+	"name": "apavayan",
   "compatibility_date": "2026-02-01",
   "compatibility_flags": [
     "nodejs_compat",
