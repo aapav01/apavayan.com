@@ -1,38 +1,14 @@
 ---
-import { Github } from '@lucide/astro';
-import { Linkedin } from '@lucide/astro';
-import { Mail as Email } from '@lucide/astro';
 import { Heart } from '@lucide/astro';
 
 const currentYear = new Date().getFullYear();
 const yearsRunning = currentYear - 2007;
-
-const socialLinks = [
-  { href: 'https://github.com/aapav01', label: 'GitHub', icon: Github },
-  { href: 'https://linkedin.com/in/apavayan', label: 'LinkedIn', icon: Linkedin },
-  { href: 'mailto:apavayansinha@gmail.com', label: 'Email', icon: Email },
-];
 ---
 
 <footer class="relative border-t border-neutral-200 dark:border-neutral-600 mt-16 overflow-hidden">
   <div class="gradient-accent absolute inset-0 opacity-30"></div>
 
   <div class="relative max-w-5xl mx-auto px-4 py-12">
-    <!-- Social Links with Enhanced Hover Effects -->
-    <div class="flex items-center justify-center gap-6 mb-8">
-      {socialLinks.map(link => (
-        <a
-          href={link.href}
-          target={link.href.startsWith('mailto') ? undefined : '_blank'}
-          rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-          class="group relative p-3 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-primary-100 dark:hover:bg-primary-900 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-          aria-label={link.label}
-        >
-          <link.icon class="w-6 h-6 text-neutral-900 dark:text-neutral-1000 group-hover:text-primary-700 dark:group-hover:text-primary-500 transition-colors duration-300" />
-        </a>
-      ))}
-    </div>
-
     <!-- Copyright & Legacy Info -->
     <div class="text-center space-y-3">
       <p class="text-sm font-medium text-neutral-900 dark:text-neutral-1000">
