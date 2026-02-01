@@ -1,7 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
-import { Menu } from '@lucide/astro';
-import { XIcon as Close } from '@lucide/astro';
+import { Menu, X } from '@lucide/astro';
 
 const isHomePage = Astro.url.pathname === '/';
 
@@ -27,7 +26,7 @@ const getHref = (href: string) => {
 <header class="sticky top-0 z-50 bg-neutral-50/90 dark:bg-neutral-950/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-600">
   <nav class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="font-bold text-xl tracking-tight hover:text-primary-600 dark:hover:text-primary-500 transition-colors">
+    <a href="/" class="font-bold text-xl tracking-tight hover:text-primary-600 dark:hover:text-primary-500 transition-colors z-50">
       AS
     </a>
 
@@ -37,7 +36,7 @@ const getHref = (href: string) => {
         <li>
           <a
             href={getHref(link.href)}
-            class="text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-1000 transition-colors"
+            class="text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
           >
             {link.label}
           </a>
@@ -47,48 +46,125 @@ const getHref = (href: string) => {
 
     <div class="flex items-center gap-2">
       <ThemeToggle />
-
-      <!-- Mobile Menu Toggle (CSS-only checkbox hack) -->
-      <input
-        type="checkbox"
-        id="nav-toggle"
-        class="hidden peer"
-        aria-hidden="true"
-      />
-      <label
-        for="nav-toggle"
-        class="md:hidden p-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-600 cursor-pointer transition-colors"
+      
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors z-50"
         aria-label="Toggle navigation menu"
+        aria-expanded="false"
       >
-        <Menu class="peer-checked:hidden" />
-        <Close class="hidden peer-checked:block" />
-      </label>
-    </div>
-
-    <!-- Mobile Menu Panel -->
-    <div class="hidden peer-checked:flex fixed inset-x-0 top-14.25 bottom-0 bg-neutral-50 dark:bg-neutral-950 flex-col items-center justify-center gap-8 md:hidden z-40">
-      {navLinks.map(link => (
-        <a
-          href={getHref(link.href)}
-          class="text-xl font-medium text-neutral-500 hover:text-primary-600 dark:text-neutral-400 dark:hover:text-primary-500 transition-colors"
-          onclick="document.getElementById('nav-toggle').checked = false"
-        >
-          {link.label}
-        </a>
-      ))}
+        <Menu id="menu-icon" size={24} />
+        <X id="close-icon" size={24} class="hidden" />
+      </button>
     </div>
   </nav>
+
+  <!-- Full-Screen Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="fixed top-0 left-0 w-full h-[100dvh] bg-neutral-50 dark:bg-neutral-950 z-40 md:hidden opacity-0 invisible transition-all duration-300 ease-in-out overflow-hidden"
+    aria-hidden="true"
+  >
+    <div class="flex flex-col items-center justify-center h-full w-full px-6 pt-20 pb-8">
+      <nav class="w-full max-w-md">
+        <ul class="flex flex-col items-center gap-6 w-full">
+          {navLinks.map((link, index) => (
+            <li 
+              class="mobile-menu-item w-full text-center opacity-0 translate-y-4"
+              style={`transition-delay: ${index * 50}ms`}
+            >
+              <a
+                href={getHref(link.href)}
+                class="block text-2xl font-semibold text-neutral-700 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-500 transition-colors py-2"
+                data-mobile-link
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
 
+<script>
+  function initMobileMenu() {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+    const menuItems = document.querySelectorAll('.mobile-menu-item');
+    
+    let isOpen = false;
+
+    function toggleMenu() {
+      isOpen = !isOpen;
+      
+      if (isOpen) {
+        // Open menu
+        mobileMenu?.classList.remove('opacity-0', 'invisible');
+        mobileMenu?.classList.add('opacity-100', 'visible');
+        menuIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        menuButton?.setAttribute('aria-expanded', 'true');
+        mobileMenu?.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        // Animate menu items
+        menuItems.forEach((item) => {
+          item.classList.remove('opacity-0', 'translate-y-4');
+          item.classList.add('opacity-100', 'translate-y-0');
+        });
+      } else {
+        // Close menu
+        mobileMenu?.classList.add('opacity-0', 'invisible');
+        mobileMenu?.classList.remove('opacity-100', 'visible');
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        menuButton?.setAttribute('aria-expanded', 'false');
+        mobileMenu?.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        
+        // Reset menu items animation
+        menuItems.forEach((item) => {
+          item.classList.add('opacity-0', 'translate-y-4');
+          item.classList.remove('opacity-100', 'translate-y-0');
+        });
+      }
+    }
+
+    // Toggle menu on button click
+    menuButton?.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isOpen) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        toggleMenu();
+      }
+    });
+  }
+
+  // Initialize on page load
+  initMobileMenu();
+
+  // Re-initialize on page navigation (for Astro view transitions)
+  document.addEventListener('astro:page-load', initMobileMenu);
+</script>
+
 <style>
-  /* Make the peer-checked work for sibling navigation */
-  #nav-toggle:checked ~ div:last-child {
-    display: flex;
-  }
-  #nav-toggle:checked + label svg:first-child {
-    display: none;
-  }
-  #nav-toggle:checked + label svg:last-child {
-    display: block;
+  .mobile-menu-item {
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   }
 </style>
