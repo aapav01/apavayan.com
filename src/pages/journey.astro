@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ArrowLeft, Calendar, Code, Rocket, GraduationCap, Briefcase, Globe, Smartphone, Server, Cpu } from '@lucide/astro';
+
+const timeline = [
+  {
+    year: '2025',
+    title: 'Full Stack Architect',
+    subtitle: 'Building AI-Powered Government Infrastructure',
+    icon: 'server',
+    description: 'Architecting DXVeda — a multi-agent LLM medical triage system with specialized AI agents, achieving 85%+ diagnostic accuracy across 200+ medical conditions. Contributing to DIGIT/UPYOG open-source government platform, building data pipelines processing 15,000+ records with 50% performance improvement.',
+    tech: ['Spring Boot', 'Kafka', 'Kubernetes', 'React', 'OpenAI', 'Gemini', 'RAG'],
+    current: true,
+  },
+  {
+    year: '2023',
+    title: 'Senior Software Engineer',
+    subtitle: 'AI Integration & Team Leadership',
+    icon: 'rocket',
+    description: 'Stepped into senior role leading teams of developers. Deployed Redis caching achieving 20% reduction in database load.',
+    tech: ['Next.js', 'Redis', 'ChatGPT API', 'PostgreSQL', 'Frappe'],
+  },
+  {
+    year: '2021',
+    title: 'Master of Computer Application',
+    subtitle: 'Advanced Computing & AI/ML',
+    icon: 'graduation',
+    description: 'Pursued MCA to deepen expertise in advanced computing, machine learning, and enterprise software architecture. Combined practical work experience with academic rigor in cloud computing and big data systems.',
+    tech: ['Python', 'Machine Learning', 'Cloud Computing', 'Big Data'],
+  },
+  {
+    year: '2019',
+    title: 'Software Developer',
+    subtitle: 'First Professional Role',
+    icon: 'briefcase',
+    description: 'Started professional career delivering 20+ interactive websites using React.js and Django. Integrated 10+ RESTful APIs ensuring consistent cross-platform experiences. Achieved 20% increase in client engagement through enhanced functionality.',
+    tech: ['React.js', 'Django', 'MySQL', 'REST APIs'],
+  },
+  {
+    year: '2016',
+    title: 'Bachelor of Computer Application',
+    subtitle: 'Formal CS Education',
+    icon: 'graduation',
+    description: 'Formalized self-taught programming knowledge with structured computer science education. Deep dive into data structures, algorithms, database systems, and software engineering principles.',
+    tech: ['C', 'C++', 'Java', 'MySQL', 'Data Structures'],
+  },
+  {
+    year: '2015',
+    title: 'Open Source Contributor',
+    subtitle: 'LineageOS / CyanogenMod',
+    icon: 'cpu',
+    description: 'Recognized contributor to LineageOS Android distribution. Collaborated with global team of 10+ developers to customize and optimize firmware. Boosted device performance by 10% and enhanced energy efficiency by 5% through kernel optimizations.',
+    highlight: 'Recognized as top 1% developer on XDA-Developers for resolving 100+ technical issues.',
+    tech: ['Android', 'Linux Kernel', 'C', 'Shell'],
+  },
+  {
+    year: '2014',
+    title: 'Tech Blog Era',
+    subtitle: 'Android Tutorials & Community',
+    icon: 'smartphone',
+    description: 'Launched "Apavayan World" — a tech blog covering Android rooting guides, custom ROM installations, and mobile app reviews. Built a community helping thousands of users unlock the full potential of their devices.',
+    tech: ['WordPress', 'PHP', 'Android Modding'],
+  },
+  {
+    year: '2013',
+    title: 'Portfolio & Photography',
+    subtitle: 'Creative Exploration',
+    icon: 'code',
+    description: 'Evolved my web presence into a portfolio showcasing photography and creative work. Experimented with social features, interactive galleries, and modern web technologies of the time.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
+  },
+  {
+    year: '2007',
+    title: 'First Website',
+    subtitle: 'Where It All Began',
+    icon: 'globe',
+    description: 'Built my first personal website as a kid — simple HTML pages about hobbies, drawings, and things I loved. The spark that ignited a lifelong passion for building things on the internet.',
+    highlight: '"This is designed and developed by ME" — my first proudly written footer.',
+    tech: ['HTML', 'Basic CSS'],
+  },
+];
+
+const getIcon = (icon: string) => {
+  switch (icon) {
+    case 'globe': return Globe;
+    case 'code': return Code;
+    case 'smartphone': return Smartphone;
+    case 'graduation': return GraduationCap;
+    case 'briefcase': return Briefcase;
+    case 'rocket': return Rocket;
+    case 'server': return Server;
+    case 'cpu': return Cpu;
+    default: return Calendar;
+  }
+};
+---
+
+<BaseLayout
+  title="My Journey | Apavayan Sinha"
+  description="From building my first website in 2007 to architecting AI-powered government platforms in 2025 — the story of my evolution in tech."
+>
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-500 mb-8 transition-colors"
+      >
+        <ArrowLeft class="w-4 h-4" />
+        Back to Home
+      </a>
+
+      <header class="mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          My Journey
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+          From a curious kid building HTML pages in Lucknow to architecting AI-powered systems —
+          this is the story of how I fell in love with technology and never looked back.
+        </p>
+      </header>
+
+      <!-- Opening Story -->
+      <div class="prose mb-16">
+        <p>
+          It started in <strong>2007</strong> with a simple HTML page. I didn't know what "software engineering" meant,
+          but I knew I wanted to build things on the internet. That first website wasn't much — but it was <em>mine</em>.
+        </p>
+        <p>
+          That spark of creation never faded. It evolved into a tech blog helping thousands of Android users,
+          contributions to open-source projects used by millions, a formal CS education, and now — architecting
+          AI-powered platforms and government infrastructure.
+        </p>
+        <p>
+          <strong>4+ years of professional experience.</strong> From React and Django to Spring Boot microservices.
+          From simple websites to multi-agent LLM systems. Here's how it unfolded.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Vertical line -->
+        <div class="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-brand-500 via-brand-600 to-brand-700"></div>
+
+        <div class="space-y-12">
+          {timeline.map((item, index) => {
+            const IconComponent = getIcon(item.icon);
+            return (
+              <div class="relative pl-12 md:pl-16">
+                <!-- Icon -->
+                <div class={`absolute left-0 md:left-2 w-8 h-8 rounded-full flex items-center justify-center ${item.current ? 'bg-brand-600 text-white ring-4 ring-brand-100 dark:ring-brand-900/50' : 'bg-white dark:bg-gray-900 border-2 border-brand-500 text-brand-600 dark:text-brand-500'}`}>
+                  <IconComponent class="w-4 h-4" />
+                </div>
+
+                <!-- Content -->
+                <div class={`p-6 rounded-xl ${item.current ? 'bg-brand-50 dark:bg-brand-900/20 border border-brand-200 dark:border-brand-800' : 'bg-gray-50 dark:bg-gray-900/50'}`}>
+                  <div class="flex flex-wrap items-center gap-3 mb-2">
+                    <span class="text-2xl font-bold text-brand-600 dark:text-brand-500">
+                      {item.year}
+                    </span>
+                    {item.current && (
+                      <span class="text-xs px-2 py-1 bg-brand-600 text-white rounded animate-pulse">
+                        Current
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                    {item.title}
+                  </h3>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                    {item.subtitle}
+                  </p>
+
+                  <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    {item.description}
+                  </p>
+
+                  {item.highlight && (
+                    <blockquote class="border-l-2 border-brand-500 pl-4 italic text-gray-600 dark:text-gray-400 mb-4">
+                      {item.highlight}
+                    </blockquote>
+                  )}
+
+                  <div class="flex flex-wrap gap-2">
+                    {item.tech.map(t => (
+                      <span class="text-xs px-2 py-1 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded border border-gray-200 dark:border-gray-700">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- Closing -->
+      <div class="mt-16 p-8 bg-linear-to-br from-brand-50 to-gray-50 dark:from-brand-900/20 dark:to-gray-900/50 rounded-xl text-center border border-brand-100 dark:border-brand-800/50">
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+          18 years of building. From HTML to AI. From hobby to profession.
+        </p>
+        <p class="text-xl font-semibold text-gray-900 dark:text-white">
+          The best code is yet to be written.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="mt-12 flex flex-wrap justify-center gap-4">
+        <a
+          href="/blog"
+          class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-lg transition-colors"
+        >
+          Read My Blog Archive
+        </a>
+        <a
+          href="/#experience"
+          class="px-6 py-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+        >
+          View Experience
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
