@@ -6,6 +6,16 @@
     "nodejs_compat",
     "global_fetch_strictly_public"
   ],
+  "routes": [
+    {
+      "pattern": "apavayan.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.apavayan.com",
+      "custom_domain": true
+    }
+  ],
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./dist"
