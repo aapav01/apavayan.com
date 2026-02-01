@@ -1,0 +1,22 @@
+---
+import { Sun } from '@lucide/astro';
+import { Moon } from '@lucide/astro';
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+  aria-label="Toggle dark mode"
+>
+  <Sun class="hidden dark:block" />
+  <Moon class="dark:hidden" />
+</button>
+
+<script is:inline>
+const t=document.getElementById('theme-toggle');
+t?.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+</script>

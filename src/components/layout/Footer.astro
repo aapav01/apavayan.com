@@ -1,0 +1,34 @@
+---
+import { Github } from '@lucide/astro';
+import { Linkedin } from '@lucide/astro';
+import { Mail as Email } from '@lucide/astro';
+
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  { href: 'https://github.com/aapav01', label: 'GitHub', icon: Github },
+  { href: 'https://linkedin.com/in/apavayan', label: 'LinkedIn', icon: Linkedin },
+  { href: 'mailto:apavayansinha@gmail.com', label: 'Email', icon: Email },
+];
+---
+
+<footer class="border-t border-gray-200 dark:border-gray-800 py-8 mt-16">
+  <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      &copy; {currentYear} Apavayan Sinha
+    </p>
+    <div class="flex items-center gap-4">
+      {socialLinks.map(link => (
+        <a
+          href={link.href}
+          target={link.href.startsWith('mailto') ? undefined : '_blank'}
+          rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+          class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+          aria-label={link.label}
+        >
+          <link.icon class="w-6 h-6" />
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>
