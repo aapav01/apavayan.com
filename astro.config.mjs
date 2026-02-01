@@ -1,7 +1,7 @@
+import cloudflare from "@astrojs/cloudflare";
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-
-import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,6 +22,6 @@ export default defineConfig({
 
   // Minify HTML output
   compressHTML: true,
-
   adapter: cloudflare(),
+  integrations: [sitemap()],
 });
