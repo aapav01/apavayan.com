@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ArrowLeft, Calendar, Tag } from '@lucide/astro';
+
+const posts = [
+  {
+    title: 'LineageOS 14.1 For Galaxy J7 2015',
+    slug: 'lineageos-14-1-for-galaxy-j7-2015',
+    date: '2017-01-13',
+    category: 'Android',
+    excerpt: 'Install LineageOS 14.1 (Android 7.1 Nougat) on your Samsung Galaxy J7 2015. This custom ROM brings the latest Android features to your device with improved performance and battery life.'
+  },
+  {
+    title: 'CyanogenMod 12.1 For Galaxy Grand 2',
+    slug: 'cyanogenmod-12-1-for-galaxy-grand-2',
+    date: '2015-11-18',
+    category: 'Android',
+    excerpt: 'Get Android 5.1 Lollipop on your Galaxy Grand 2 with CyanogenMod 12.1. This unofficial port is now stable with dual SIM support and all features working.'
+  },
+  {
+    title: 'How to Root Galaxy Grand 2 SM-G7102',
+    slug: 'how-to-root-galaxy-grand-2-sm-g7102',
+    date: '2014-04-27',
+    category: 'Root Guide',
+    excerpt: 'Learn how to root your Samsung Galaxy Grand 2 SM-G7102 using CF-Auto-Root. Gain full access to customize your phone, install root apps, and improve performance.'
+  },
+  {
+    title: 'Walkman Album And Movies App for Grand 2',
+    slug: 'walkman-album-and-movies-app-for-grand-2',
+    date: '2014-03-29',
+    category: 'Android Apps',
+    excerpt: 'Install Sony Walkman, Album, and Movies apps on your Samsung Galaxy Grand 2. Experience Sony\'s premium media applications on your device.'
+  },
+  {
+    title: 'Motorola Moto 360 Design Hangout',
+    slug: 'motorola-moto-360-design-hangout',
+    date: '2014-03-18',
+    category: 'News',
+    excerpt: 'Motorola announces a live Hangout on Air with lead designer Jim Wicks to discuss the design philosophy behind the revolutionary Moto 360 smartwatch.'
+  },
+  {
+    title: 'How to Root T-Mobile Galaxy S4 on Android 4.4.2 KitKat',
+    slug: 'how-to-root-t-mobile-galaxy-s4-on-android-4-4-2-kitkat',
+    date: '2014-03-16',
+    category: 'Root Guide',
+    excerpt: 'Root your T-Mobile Galaxy S4 SGH-M919 running Android 4.4.2 KitKat. This guide covers the complete rooting process for firmware version M919UVUFNB4.'
+  }
+];
+---
+
+<BaseLayout
+  title="Blog Archive | Apavayan Sinha"
+  description="Archived blog posts from Apavayan World - Android tips, rooting tutorials, ROMs, app reviews, and more."
+>
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-500 mb-8 transition-colors"
+      >
+        <ArrowLeft class="w-4 h-4" />
+        Back to Home
+      </a>
+
+      <header class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          Blog Archive
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">
+          Posts from my old tech blog "Apavayan World" (2014-2017) - covering Android rooting, custom ROMs, and mobile tech news.
+        </p>
+      </header>
+
+      <div class="space-y-8">
+        {posts.map(post => (
+          <article class="group">
+            <a href={`/blog/${post.slug}`} class="block">
+              <div class="p-6 -mx-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors">
+                <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  <span class="inline-flex items-center gap-1">
+                    <Tag class="w-3 h-3" />
+                    {post.category}
+                  </span>
+                  <span class="inline-flex items-center gap-1">
+                    <Calendar class="w-3 h-3" />
+                    {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </span>
+                </div>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-500 transition-colors mb-2">
+                  {post.title}
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 line-clamp-2">
+                  {post.excerpt}
+                </p>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -3,13 +3,24 @@ import ThemeToggle from './ThemeToggle.astro';
 import { Menu } from '@lucide/astro';
 import { XIcon as Close } from '@lucide/astro';
 
+const isHomePage = Astro.url.pathname === '/';
+
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
+  { href: '/blog', label: 'Blog' },
   { href: '#contact', label: 'Contact' },
 ];
+
+// Prefix anchor links with "/" when not on home page
+const getHref = (href: string) => {
+  if (href.startsWith('#') && !isHomePage) {
+    return '/' + href;
+  }
+  return href;
+};
 ---
 
 <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
@@ -24,7 +35,7 @@ const navLinks = [
       {navLinks.map(link => (
         <li>
           <a
-            href={link.href}
+            href={getHref(link.href)}
             class="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
           >
             {link.label}
@@ -57,7 +68,7 @@ const navLinks = [
     <div class="hidden peer-checked:flex fixed inset-x-0 top-14.25 bottom-0 bg-white dark:bg-gray-950 flex-col items-center justify-center gap-8 md:hidden z-40">
       {navLinks.map(link => (
         <a
-          href={link.href}
+          href={getHref(link.href)}
           class="text-xl font-medium text-gray-700 hover:text-brand-600 dark:text-gray-300 dark:hover:text-brand-500 transition-colors"
           onclick="document.getElementById('nav-toggle').checked = false"
         >
