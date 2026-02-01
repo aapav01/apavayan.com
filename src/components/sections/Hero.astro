@@ -7,27 +7,27 @@ import { Mail as Email } from '@lucide/astro';
 
 <section class="py-20 md:py-32">
   <div class="max-w-5xl mx-auto px-4">
-    <p class="text-brand-600 dark:text-brand-500 font-medium mb-2">Hi, I'm</p>
+    <p class="text-primary-600 dark:text-primary-500 font-medium mb-2">Hi, I'm</p>
     <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
       {personal.name}
     </h1>
-    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4">
-      {personal.title} <span class="text-gray-400 dark:text-gray-600">|</span> {personal.subtitle}
+    <p class="text-xl md:text-2xl text-neutral-500 dark:text-neutral-400 mb-4">
+      {personal.title} <span class="text-neutral-400 dark:text-neutral-500">|</span> {personal.subtitle}
     </p>
-    <p class="max-w-2xl text-lg text-gray-600 dark:text-gray-400 mb-8">
+    <p class="max-w-2xl text-lg text-neutral-500 dark:text-neutral-400 mb-8">
       {personal.tagline}
     </p>
 
     <div class="flex flex-wrap items-center gap-4">
       <a
         href="#contact"
-        class="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-medium rounded-lg hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors"
+        class="inline-flex items-center px-6 py-3 bg-primary-600 dark:bg-primary-500 text-white dark:text-neutral-900 font-medium rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors"
       >
         Get in Touch
       </a>
       <a
         href="#projects"
-        class="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors"
+        class="inline-flex items-center px-6 py-3 border border-neutral-200 dark:border-neutral-600 text-neutral-500 dark:text-neutral-400 font-medium rounded-lg hover:border-primary-500 dark:hover:border-primary-500 transition-colors"
       >
         View Projects
       </a>
@@ -38,7 +38,7 @@ import { Mail as Email } from '@lucide/astro';
         href={personal.links.github}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+        class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-1000 transition-colors"
         aria-label="GitHub"
       >
         <Github class="w-6 h-6" />
@@ -47,14 +47,14 @@ import { Mail as Email } from '@lucide/astro';
         href={personal.links.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+        class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-1000 transition-colors"
         aria-label="LinkedIn"
       >
         <Linkedin class="w-6 h-6" />
       </a>
       <a
         href={`mailto:${personal.email}`}
-        class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+        class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-1000 transition-colors"
         aria-label="Email"
       >
         <Email class="w-6 h-6" />

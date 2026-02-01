@@ -48,12 +48,12 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
       if(localStorage.theme==='dark'||(!('theme' in localStorage)&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');
     </script>
   </head>
-  <body class="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 font-sans antialiased">
+  <body class="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-1000 font-sans antialiased">
     <Header />
     <main class="max-w-3xl mx-auto px-4 py-16">
       <a
         href="/blog"
-        class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-500 mb-8 transition-colors"
+        class="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 mb-8 transition-colors"
       >
         <ArrowLeft class="w-4 h-4" />
         Back to Archive
@@ -61,8 +61,8 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 
       <article>
         <header class="mb-8">
-          <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-3">
-            <span class="px-2 py-1 bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-400 rounded text-xs font-medium">
+          <div class="flex items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400 mb-3">
+            <span class="px-2 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-400 rounded text-xs font-medium">
               {category}
             </span>
             <time datetime={date}>{formattedDate}</time>
@@ -72,7 +72,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
           </h1>
         </header>
 
-        <div class="prose prose-gray dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-brand-600 dark:prose-a:text-brand-500 prose-img:rounded-lg">
+        <div class="prose prose-gray dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-accent-600 dark:prose-a:text-accent-400 prose-img:rounded-lg">
           <slot />
         </div>
       </article>

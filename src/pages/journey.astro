@@ -103,17 +103,17 @@ const getIcon = (icon: string) => {
     <div class="max-w-3xl mx-auto px-4">
       <a
         href="/"
-        class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-500 mb-8 transition-colors"
+        class="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-500 mb-8 transition-colors"
       >
         <ArrowLeft class="w-4 h-4" />
         Back to Home
       </a>
 
       <header class="mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-1000 mb-6">
           My Journey
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+        <p class="text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed">
           From a curious kid building HTML pages in Lucknow to architecting AI-powered systems —
           this is the story of how I fell in love with technology and never looked back.
         </p>
@@ -139,7 +139,7 @@ const getIcon = (icon: string) => {
       <!-- Timeline -->
       <div class="relative">
         <!-- Vertical line -->
-        <div class="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-brand-500 via-brand-600 to-brand-700"></div>
+        <div class="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary-500 via-primary-600 to-primary-700"></div>
 
         <div class="space-y-12">
           {timeline.map((item, index) => {
@@ -147,43 +147,43 @@ const getIcon = (icon: string) => {
             return (
               <div class="relative pl-12 md:pl-16">
                 <!-- Icon -->
-                <div class={`absolute left-0 md:left-2 w-8 h-8 rounded-full flex items-center justify-center ${item.current ? 'bg-brand-600 text-white ring-4 ring-brand-100 dark:ring-brand-900/50' : 'bg-white dark:bg-gray-900 border-2 border-brand-500 text-brand-600 dark:text-brand-500'}`}>
+                <div class={`absolute left-0 md:left-2 w-8 h-8 rounded-full flex items-center justify-center ${item.current ? 'bg-primary-600 text-white ring-4 ring-primary-100 dark:ring-primary-900/50' : 'bg-white dark:bg-black border-2 border-primary-500 text-primary-600 dark:text-primary-500'}`}>
                   <IconComponent class="w-4 h-4" />
                 </div>
 
                 <!-- Content -->
-                <div class={`p-6 rounded-xl ${item.current ? 'bg-brand-50 dark:bg-brand-900/20 border border-brand-200 dark:border-brand-800' : 'bg-gray-50 dark:bg-gray-900/50'}`}>
+                <div class={`p-6 rounded-xl ${item.current ? 'bg-primary-50 dark:bg-primary-900/20 border border-primary-100 dark:border-primary-800' : 'bg-white dark:bg-black'}`}>
                   <div class="flex flex-wrap items-center gap-3 mb-2">
-                    <span class="text-2xl font-bold text-brand-600 dark:text-brand-500">
+                    <span class="text-2xl font-bold text-primary-600 dark:text-primary-500">
                       {item.year}
                     </span>
                     {item.current && (
-                      <span class="text-xs px-2 py-1 bg-brand-600 text-white rounded animate-pulse">
+                      <span class="text-xs px-2 py-1 bg-primary-600 text-white rounded animate-pulse">
                         Current
                       </span>
                     )}
                   </div>
 
-                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                  <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-1000 mb-1">
                     {item.title}
                   </h3>
-                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-3">
                     {item.subtitle}
                   </p>
 
-                  <p class="text-gray-600 dark:text-gray-400 mb-4">
+                  <p class="text-neutral-500 dark:text-neutral-400 mb-4">
                     {item.description}
                   </p>
 
                   {item.highlight && (
-                    <blockquote class="border-l-2 border-brand-500 pl-4 italic text-gray-600 dark:text-gray-400 mb-4">
+                    <blockquote class="border-l-2 border-primary-500 pl-4 italic text-neutral-500 dark:text-neutral-400 mb-4">
                       {item.highlight}
                     </blockquote>
                   )}
 
                   <div class="flex flex-wrap gap-2">
                     {item.tech.map(t => (
-                      <span class="text-xs px-2 py-1 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded border border-gray-200 dark:border-gray-700">
+                      <span class="text-xs px-2 py-1 bg-[#FAFAFA] dark:bg-neutral-600 text-neutral-500 dark:text-neutral-400 rounded border border-neutral-200 dark:border-neutral-600">
                         {t}
                       </span>
                     ))}
@@ -196,11 +196,11 @@ const getIcon = (icon: string) => {
       </div>
 
       <!-- Closing -->
-      <div class="mt-16 p-8 bg-linear-to-br from-brand-50 to-gray-50 dark:from-brand-900/20 dark:to-gray-900/50 rounded-xl text-center border border-brand-100 dark:border-brand-800/50">
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+      <div class="mt-16 p-8 bg-linear-to-br from-primary-50 to-[#FAFAFA] dark:from-primary-900/20 dark:to-black rounded-xl text-center border border-primary-100 dark:border-primary-800/50">
+        <p class="text-lg text-neutral-500 dark:text-neutral-400 mb-4">
           18 years of building. From HTML to AI. From hobby to profession.
         </p>
-        <p class="text-xl font-semibold text-gray-900 dark:text-white">
+        <p class="text-xl font-semibold text-neutral-900 dark:text-neutral-1000">
           The best code is yet to be written.
         </p>
       </div>
@@ -209,13 +209,13 @@ const getIcon = (icon: string) => {
       <div class="mt-12 flex flex-wrap justify-center gap-4">
         <a
           href="/blog"
-          class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-lg transition-colors"
+          class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors"
         >
           Read My Blog Archive
         </a>
         <a
           href="/#experience"
-          class="px-6 py-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+          class="px-6 py-3 border border-neutral-200 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-600 rounded-lg transition-colors"
         >
           View Experience
         </a>

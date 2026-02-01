@@ -56,17 +56,17 @@ const posts = [
     <div class="max-w-3xl mx-auto px-4">
       <a
         href="/"
-        class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-500 mb-8 transition-colors"
+        class="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-500 mb-8 transition-colors"
       >
         <ArrowLeft class="w-4 h-4" />
         Back to Home
       </a>
 
       <header class="mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-1000 mb-4">
           Blog Archive
         </h1>
-        <p class="text-lg text-gray-600 dark:text-gray-400">
+        <p class="text-lg text-neutral-500 dark:text-neutral-400">
           Posts from my old tech blog "Apavayan World" (2014-2017) - covering Android rooting, custom ROMs, and mobile tech news.
         </p>
       </header>
@@ -75,8 +75,8 @@ const posts = [
         {posts.map(post => (
           <article class="group">
             <a href={`/blog/${post.slug}`} class="block">
-              <div class="p-6 -mx-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors">
-                <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-2">
+              <div class="p-6 -mx-6 rounded-xl hover:bg-white dark:hover:bg-black transition-colors">
+                <div class="flex items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400 mb-2">
                   <span class="inline-flex items-center gap-1">
                     <Tag class="w-3 h-3" />
                     {post.category}
@@ -86,10 +86,10 @@ const posts = [
                     {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                   </span>
                 </div>
-                <h2 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-500 transition-colors mb-2">
+                <h2 class="text-xl font-semibold text-neutral-900 dark:text-neutral-1000 group-hover:text-primary-600 dark:group-hover:text-primary-500 transition-colors mb-2">
                   {post.title}
                 </h2>
-                <p class="text-gray-600 dark:text-gray-400 line-clamp-2">
+                <p class="text-neutral-500 dark:text-neutral-400 line-clamp-2">
                   {post.excerpt}
                 </p>
               </div>

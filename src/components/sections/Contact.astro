@@ -6,34 +6,34 @@ import { personal } from '../../data/personal';
 <section id="contact" class="py-16 scroll-mt-20">
   <div class="max-w-5xl mx-auto px-4">
     <h2 class="text-2xl md:text-3xl font-bold mb-4">Get in Touch</h2>
-    <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-xl">
+    <p class="text-neutral-500 dark:text-neutral-400 mb-8 max-w-xl">
       I'm always open to discussing new projects, opportunities, or just having a chat about technology.
     </p>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <a
         href={`mailto:${personal.email}`}
-        class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors group"
+        class="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 dark:border-neutral-600 hover:border-primary-500 dark:hover:border-primary-500 hover:bg-white dark:hover:bg-black transition-colors group"
       >
-        <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-brand-100 dark:group-hover:bg-brand-900/30 transition-colors">
-          <Email class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-brand-600 dark:group-hover:text-brand-500" />
+        <div class="p-2 bg-neutral-200 dark:bg-neutral-600 rounded-lg group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
+          <Email class="w-5 h-5 text-neutral-500 dark:text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
         </div>
         <div>
-          <p class="text-xs text-gray-500 dark:text-gray-400">Email</p>
-          <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Send a message</p>
+          <p class="text-xs text-neutral-500 dark:text-neutral-400">Email</p>
+          <p class="text-sm font-medium text-neutral-900 dark:text-neutral-1000">Send a message</p>
         </div>
       </a>
 
       <a
         href={`tel:${personal.phone.replace(/\s/g, '')}`}
-        class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors group"
+        class="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 dark:border-neutral-600 hover:border-primary-500 dark:hover:border-primary-500 hover:bg-white dark:hover:bg-black transition-colors group"
       >
-        <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-brand-100 dark:group-hover:bg-brand-900/30 transition-colors">
-          <Phone class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-brand-600 dark:group-hover:text-brand-500" />
+        <div class="p-2 bg-neutral-200 dark:bg-neutral-600 rounded-lg group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
+          <Phone class="w-5 h-5 text-neutral-500 dark:text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
         </div>
         <div>
-          <p class="text-xs text-gray-500 dark:text-gray-400">Phone</p>
-          <p class="text-sm font-medium text-gray-900 dark:text-gray-100">{personal.phone}</p>
+          <p class="text-xs text-neutral-500 dark:text-neutral-400">Phone</p>
+          <p class="text-sm font-medium text-neutral-900 dark:text-neutral-1000">{personal.phone}</p>
         </div>
       </a>
 
@@ -41,14 +41,14 @@ import { personal } from '../../data/personal';
         href={personal.links.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors group"
+        class="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 dark:border-neutral-600 hover:border-primary-500 dark:hover:border-primary-500 hover:bg-white dark:hover:bg-black transition-colors group"
       >
-        <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-brand-100 dark:group-hover:bg-brand-900/30 transition-colors">
-          <Linkedin class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-brand-600 dark:group-hover:text-brand-500" />
+        <div class="p-2 bg-neutral-200 dark:bg-neutral-600 rounded-lg group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
+          <Linkedin class="w-5 h-5 text-neutral-500 dark:text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
         </div>
         <div>
-          <p class="text-xs text-gray-500 dark:text-gray-400">LinkedIn</p>
-          <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Connect</p>
+          <p class="text-xs text-neutral-500 dark:text-neutral-400">LinkedIn</p>
+          <p class="text-sm font-medium text-neutral-900 dark:text-neutral-1000">Connect</p>
         </div>
       </a>
 
@@ -56,14 +56,14 @@ import { personal } from '../../data/personal';
         href={personal.links.github}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors group"
+        class="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 dark:border-neutral-600 hover:border-primary-500 dark:hover:border-primary-500 hover:bg-white dark:hover:bg-black transition-colors group"
       >
-        <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-brand-100 dark:group-hover:bg-brand-900/30 transition-colors">
-          <Github class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-brand-600 dark:group-hover:text-brand-500" />
+        <div class="p-2 bg-neutral-200 dark:bg-neutral-600 rounded-lg group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
+          <Github class="w-5 h-5 text-neutral-500 dark:text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
         </div>
         <div>
-          <p class="text-xs text-gray-500 dark:text-gray-400">GitHub</p>
-          <p class="text-sm font-medium text-gray-900 dark:text-gray-100">@aapav01</p>
+          <p class="text-xs text-neutral-500 dark:text-neutral-400">GitHub</p>
+          <p class="text-sm font-medium text-neutral-900 dark:text-neutral-1000">@aapav01</p>
         </div>
       </a>
     </div>
