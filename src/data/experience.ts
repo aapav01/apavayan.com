@@ -10,7 +10,7 @@ export interface Experience {
 export const experience: Experience[] = [
   {
     company: 'Bajaj Finserv Limited',
-    companyUrl: 'https://www.tattvafoundation.org/about_page',
+    companyUrl: 'https://www.aboutbajajfinserv.com/',
     title: 'Sr. AI Engineer',
     period: 'May 2026 - Present',
     location: 'Pune, India',
