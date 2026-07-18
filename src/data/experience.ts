@@ -11,7 +11,7 @@ export const experience: Experience[] = [
   {
     company: 'Bajaj Finserv Limited',
     companyUrl: 'https://www.aboutbajajfinserv.com/',
-    title: 'Sr. AI Engineer',
+    title: 'Senior AI Engineer',
     period: 'May 2026 - Present',
     location: 'Pune, India',
     highlights: [
