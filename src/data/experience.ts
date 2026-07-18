@@ -9,10 +9,21 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    company: 'Bajaj Finserv Limited',
+    companyUrl: 'https://www.tattvafoundation.org/about_page',
+    title: 'Sr. AI Engineer',
+    period: 'May 2026 - Present',
+    location: 'Pune, India',
+    highlights: [
+      'Implemented Loan Against Mutual Funds (LAMF) product using Conversational AI.',
+      'Integrated Bharat Bill Payment System (BBPS) for seamless transactions using Conversational AI.',
+    ],
+  },
+  {
     company: 'Tattva Foundation',
     companyUrl: 'https://www.tattvafoundation.org/about_page',
     title: 'Full Stack Developer',
-    period: 'Jun 2025 - Present',
+    period: 'Jun 2025 - May 2026',
     location: 'Lucknow, India',
     highlights: [
       'Architected DXVeda, a multi-agent LLM medical triage system with 85%+ diagnostic accuracy',
